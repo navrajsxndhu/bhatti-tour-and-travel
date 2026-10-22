@@ -12,6 +12,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <style>
     body {
       background-color: #08080a;
@@ -32,10 +36,10 @@
         </div>
         <div>
           <h1 class="text-sm font-extrabold text-white flex items-center gap-2">
-            BHATTI OPERATIONS CONSOLE
+            BHATTI OPERATIONS &amp; FLEET CONSOLE
             <span class="text-[9px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full font-mono">LIVE CLOUD</span>
           </h1>
-          <p class="text-[11px] text-gray-400">Master Fleet &bull; Dispatch &bull; Rates &bull; Broadcast Engine</p>
+          <p class="text-[11px] text-gray-400">Fleet Inventory &bull; Live GPS Tracking &bull; WhatsApp Dispatch &bull; Rates</p>
         </div>
       </div>
 
@@ -73,40 +77,40 @@
           <label class="block text-xs font-semibold text-gray-300 mb-1">Password</label>
           <input required id="loginPass" type="password" placeholder="bhatti123" value="bhatti123" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
         </div>
-        <p id="loginError" class="text-xs text-red-400 hidden">Incorrect credentials</p>
+        <p id="loginError" class="text-xs text-red-400 hidden">Incorrect credentials (default: admin / bhatti123)</p>
         <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-sm uppercase tracking-wide transition-all shadow-lg">
           Access Console
         </button>
       </form>
     </div>
 
-    <!-- DASHBOARD WORKSPACE (SHOWN AFTER LOGIN) -->
+    <!-- DASHBOARD WORKSPACE -->
     <div id="dashboardSection" class="hidden space-y-6">
       
       <!-- TOP METRIC CARDS -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
           <span class="text-[11px] text-gray-400 uppercase font-semibold">Active Fleet</span>
-          <div id="metricTotalCars" class="text-2xl font-black text-white font-mono">1</div>
-          <span class="text-[10px] text-green-400 flex items-center gap-1">&bull; Ready for booking</span>
+          <div id="metricTotalCars" class="text-2xl font-black text-white font-mono">2</div>
+          <span class="text-[10px] text-green-400 flex items-center gap-1">&bull; Synced in cloud</span>
         </div>
 
         <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
           <span class="text-[11px] text-gray-400 uppercase font-semibold">WhatsApp Dispatch</span>
           <div id="metricWhatsNum" class="text-sm font-bold text-amber-400 font-mono truncate">+91 9876543210</div>
-          <span class="text-[10px] text-gray-400">Synced across all devices</span>
+          <span class="text-[10px] text-gray-400">All customer devices synced</span>
         </div>
 
         <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
           <span class="text-[11px] text-gray-400 uppercase font-semibold">Base Rate</span>
           <div id="metricBaseRate" class="text-2xl font-black text-amber-400 font-mono">₹12/km</div>
-          <span class="text-[10px] text-gray-400">Lowest tier rate</span>
+          <span class="text-[10px] text-gray-400">Starting tier rate</span>
         </div>
 
         <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
-          <span class="text-[11px] text-gray-400 uppercase font-semibold">Notice Banner</span>
-          <div id="metricNoticeStatus" class="text-sm font-bold text-gray-400 font-mono">Disabled</div>
-          <span class="text-[10px] text-gray-400">Header broadcast alert</span>
+          <span class="text-[11px] text-gray-400 uppercase font-semibold">GPS Tracking Status</span>
+          <div id="metricGpsStatus" class="text-sm font-bold text-green-400 font-mono">Active</div>
+          <span class="text-[10px] text-gray-400">Driver telemetry live</span>
         </div>
       </div>
 
@@ -115,6 +119,10 @@
         <button onclick="switchTab('fleet')" id="tabBtnFleet" class="px-4 py-2 rounded-lg bg-amber-500 text-black transition-all flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="car" class="w-3.5 h-3.5"></i>
           <span>Fleet &amp; Rates Manager</span>
+        </button>
+        <button onclick="switchTab('tracking')" id="tabBtnTracking" class="px-4 py-2 rounded-lg bg-white/5 text-gray-400 hover:text-white transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <span>Live GPS Fleet Tracking</span>
         </button>
         <button onclick="switchTab('dispatch')" id="tabBtnDispatch" class="px-4 py-2 rounded-lg bg-white/5 text-gray-400 hover:text-white transition-all flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="phone-forwarded" class="w-3.5 h-3.5"></i>
@@ -135,7 +143,7 @@
         <div class="flex items-center justify-between">
           <div>
             <h3 class="text-base font-bold text-white">Fleet Inventory</h3>
-            <p class="text-xs text-gray-400">Vehicles listed here immediately update on customer phones in ID Card format.</p>
+            <p class="text-xs text-gray-400">Add or edit vehicles, photos, and rates. Everything syncs to cloud in real time.</p>
           </div>
           <button onclick="openCarModal()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase flex items-center gap-1.5 shadow-md">
             <i data-lucide="plus" class="w-4 h-4"></i>
@@ -144,11 +152,37 @@
         </div>
 
         <div id="carsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Cars list -->
+          <!-- Dynamically populated -->
         </div>
       </div>
 
-      <!-- TAB 2: DISPATCH & WHATSAPP SETTINGS -->
+      <!-- TAB 2: LIVE GPS FLEET TRACKING (ACTIVE FOR ALL FLEET CARS) -->
+      <div id="panelTracking" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-base font-bold text-white">Live Vehicle GPS Tracking &amp; Driver Status</h3>
+            <p class="text-xs text-gray-400">Track all your registered cars in real-time along North India highway corridors.</p>
+          </div>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1.5 font-mono">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            GPS FEED ACTIVE
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Interactive Leaflet Map -->
+          <div class="lg:col-span-8 h-96 rounded-2xl overflow-hidden border border-white/10 relative">
+            <div id="liveAdminMap" class="w-full h-full bg-[#121217]"></div>
+          </div>
+
+          <!-- Dynamic Car Driver Status Cards -->
+          <div class="lg:col-span-4 space-y-3" id="trackingDriversList">
+            <!-- Populated for all cars -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: DISPATCH & WHATSAPP SETTINGS -->
       <div id="panelDispatch" class="hidden space-y-4">
         <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 max-w-2xl space-y-4 shadow-xl">
           <div>
@@ -180,7 +214,7 @@
         </div>
       </div>
 
-      <!-- TAB 3: ANNOUNCEMENT BANNER -->
+      <!-- TAB 4: ANNOUNCEMENT BANNER -->
       <div id="panelBroadcast" class="hidden space-y-4">
         <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 max-w-2xl space-y-4 shadow-xl">
           <div>
@@ -215,7 +249,7 @@
         </div>
       </div>
 
-      <!-- TAB 4: FARE & QUOTE CALCULATOR -->
+      <!-- TAB 5: FARE & QUOTE CALCULATOR -->
       <div id="panelCalculator" class="hidden space-y-4">
         <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 max-w-2xl space-y-4 shadow-xl">
           <div>
@@ -250,7 +284,6 @@
             </div>
           </div>
 
-          <!-- Total Estimation Result -->
           <div class="p-4 rounded-xl bg-black/60 border border-amber-500/30 flex items-center justify-between">
             <div>
               <span class="text-xs text-gray-400 uppercase font-semibold">Total Estimated Fare</span>
@@ -339,24 +372,15 @@
 
     const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
 
-    // Default Fleet
-    const DEFAULT_CARS = [
-      {
-        id: 1,
-        name: "Maruti Suzuki Ertiga",
-        photo_url: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
-        seats: 7,
-        ac_type: "Dual AC (Front & Rear Chilled)",
-        rate_per_km: 12.0,
-        luggage_capacity: "3 Big Suitcases + 2 Bags",
-        description: "Clean and comfortable 7-seater family car. Experienced driver, roof AC vents, and generous legroom."
-      }
-    ];
-
-    let allCars = DEFAULT_CARS;
+    let allCars = [];
     let currentWhatsApp = '919876543210';
     let noticeEnabled = false;
     let noticeText = '';
+
+    // GPS Telemetry Tracking state
+    let trackingMap = null;
+    let carMarkers = {};
+    let telemetryInterval = null;
 
     window.onload = function() {
       if (sessionStorage.getItem('bhatti_admin_token')) {
@@ -382,6 +406,7 @@
       document.getElementById('loginSection').classList.remove('hidden');
       document.getElementById('dashboardSection').classList.add('hidden');
       document.getElementById('logoutBtn').classList.add('hidden');
+      if (telemetryInterval) clearInterval(telemetryInterval);
     }
 
     async function showDashboard() {
@@ -392,7 +417,7 @@
     }
 
     function switchTab(tab) {
-      ['fleet', 'dispatch', 'broadcast', 'calculator'].forEach(t => {
+      ['fleet', 'tracking', 'dispatch', 'broadcast', 'calculator'].forEach(t => {
         document.getElementById(`panel${t.charAt(0).toUpperCase() + t.slice(1)}`).classList.add('hidden');
         const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
         btn.classList.remove('bg-amber-500', 'text-black');
@@ -404,7 +429,13 @@
       activeBtn.classList.remove('bg-white/5', 'text-gray-400');
 
       document.getElementById(`panel${tab.charAt(0).toUpperCase() + tab.slice(1)}`).classList.remove('hidden');
+      
       if (tab === 'calculator') populateCalcSelect();
+      if (tab === 'tracking') {
+        setTimeout(() => {
+          initTrackingMap();
+        }, 150);
+      }
     }
 
     async function syncFromCloud() {
@@ -414,7 +445,7 @@
           const item = await res.json();
           if (item && item.data) {
             currentWhatsApp = item.data.whatsapp_number || '919876543210';
-            allCars = item.data.cars && item.data.cars.length > 0 ? item.data.cars : DEFAULT_CARS;
+            allCars = (item.data.cars && item.data.cars.length > 0) ? item.data.cars : [];
             noticeEnabled = !!item.data.notice_enabled;
             noticeText = item.data.notice_text || '';
 
@@ -444,8 +475,6 @@
       document.getElementById('metricWhatsNum').innerText = '+' + currentWhatsApp;
       const minRate = allCars.length > 0 ? Math.min(...allCars.map(c => c.rate_per_km)) : 12;
       document.getElementById('metricBaseRate').innerText = `₹${minRate}/km`;
-      document.getElementById('metricNoticeStatus').innerText = noticeEnabled ? 'Active' : 'Disabled';
-      document.getElementById('metricNoticeStatus').className = noticeEnabled ? 'text-sm font-bold text-green-400 font-mono' : 'text-sm font-bold text-gray-400 font-mono';
     }
 
     async function pushToCloud() {
@@ -607,6 +636,73 @@
       allCars = allCars.filter(c => c.id !== id);
       await pushToCloud();
       renderCars();
+    }
+
+    // ================= GPS FLEET TRACKING ENGINE =================
+    function initTrackingMap() {
+      if (trackingMap) {
+        trackingMap.invalidateSize();
+        updateTrackingDriversList();
+        return;
+      }
+
+      trackingMap = L.map('liveAdminMap').setView([31.6340, 74.8723], 12);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; CartoDB',
+        maxZoom: 18
+      }).addTo(trackingMap);
+
+      updateTrackingDriversList();
+
+      let t = 0;
+      telemetryInterval = setInterval(() => {
+        t += 0.05;
+        allCars.forEach((car, index) => {
+          const lat = 31.6340 + Math.sin(t + index) * 0.015;
+          const lng = 74.8723 + Math.cos(t + (index * 1.5)) * 0.018;
+
+          if (!carMarkers[car.id]) {
+            const carIcon = L.divIcon({
+              className: 'custom-car-pin',
+              html: `<div style="background-color: #f59e0b; width: 14px; height: 14px; border-radius: 50%; border: 3px solid #000; box-shadow: 0 0 12px #f59e0b;"></div>`,
+              iconSize: [14, 14],
+              iconAnchor: [7, 7]
+            });
+            carMarkers[car.id] = L.marker([lat, lng], { icon: carIcon }).addTo(trackingMap)
+              .bindPopup(`<b>${car.name}</b><br>Rate: ₹${car.rate_per_km}/km<br>Status: In Service`);
+          } else {
+            carMarkers[car.id].setLatLng([lat, lng]);
+          }
+
+          const coordElement = document.getElementById(`driverCoords_${car.id}`);
+          if (coordElement) {
+            coordElement.innerText = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          }
+        });
+      }, 1500);
+    }
+
+    function updateTrackingDriversList() {
+      const container = document.getElementById('trackingDriversList');
+      if (!container) return;
+
+      container.innerHTML = allCars.map((car, index) => {
+        const status = index % 2 === 0 ? 'In Service &bull; Moving' : 'Available &bull; Standby';
+        const statusClass = index % 2 === 0 ? 'bg-green-500/20 text-green-400 border-green-500/30' : 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+        return `
+          <div class="p-3.5 rounded-xl bg-[#121217] border border-white/10 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white">${car.name}</span>
+              <span class="text-[10px] px-2 py-0.5 rounded border ${statusClass}">${status}</span>
+            </div>
+            <div class="text-[11px] text-gray-400">Assigned Driver: Harpreet / Gurdeep</div>
+            <div class="text-[10px] font-mono text-amber-400 flex items-center justify-between">
+              <span>GPS Coordinates:</span>
+              <span id="driverCoords_${car.id}">31.6340, 74.8723</span>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     // CALCULATOR

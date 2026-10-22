@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Bhatti Tour and Travel | Clean Maruti Ertiga Taxi</title>
+  <title>Bhatti Tour and Travel | Affordable & Reliable Taxi Service</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
 </head>
 <body class="bg-[#0b0b0e] text-gray-100 antialiased selection:bg-amber-500 selection:text-black pb-12">
 
-  <!-- ================= TOP NOTICE BANNER (CONTROLLED BY ADMIN) ================= -->
+  <!-- ================= TOP NOTICE BANNER ================= -->
   <div id="topNoticeBanner" class="hidden bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-black text-xs font-bold py-2 px-4 text-center">
     <span id="topNoticeText">Welcome to Bhatti Tour &amp; Travel</span>
   </div>
@@ -46,7 +46,7 @@
       <!-- Quick Actions -->
       <div class="flex items-center gap-2.5">
         <a href="/cars" class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full hover:bg-amber-500 hover:text-black transition-all">
-          Our Cars
+          Our Fleet
         </a>
         <a id="navCallBtn" href="tel:+919876543210" class="w-8 h-8 rounded-full bg-amber-500 text-black flex items-center justify-center font-bold shadow-md">
           <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
@@ -55,7 +55,7 @@
     </div>
   </header>
 
-  <!-- ================= HERO SECTION (CLEAN & MOBILE OPTIMIZED) ================= -->
+  <!-- ================= HERO SECTION ================= -->
   <section class="pt-6 pb-6 px-4">
     <div class="max-w-4xl mx-auto space-y-4">
       
@@ -67,47 +67,34 @@
 
       <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
         Apni Hi Gaadi Samjho! <br class="hidden sm:block">
-        <span class="text-amber-400">Maruti Ertiga (7-Seater) Taxi</span>
+        <span class="text-amber-400">Reliable Taxi &amp; Chauffeur Service</span>
       </h1>
 
       <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
-        Airport pickup &amp; drop, wedding ceremonies, ya family ke sath Himachal tour. Clean car, chilled AC, aur experienced driver. Direct WhatsApp pe rate decide karo.
+        Airport pickup &amp; drop, wedding events, ya family ke sath Himachal tour. Clean cars, chilled AC, aur experienced driver. Pick your car below and book directly on WhatsApp!
       </p>
 
-      <!-- Featured Car Card -->
-      <div class="bg-[#14141a] border border-white/10 rounded-2xl p-4 shadow-xl space-y-3">
-        <div class="h-48 sm:h-64 rounded-xl overflow-hidden bg-black/40 relative">
-          <img 
-            id="heroCarImg"
-            src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop" 
-            alt="Maruti Suzuki Ertiga Taxi" 
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute bottom-2.5 left-2.5 bg-black/85 px-2.5 py-1 rounded-lg border border-white/10 text-xs font-bold text-amber-400 font-mono">
-            <span id="heroRateBadge">From ₹12 / km</span>
-          </div>
+      <!-- DYNAMIC ALL CARS SHOWCASE ON HOMEPAGE -->
+      <div class="space-y-3 pt-2">
+        <div class="flex items-center justify-between">
+          <h2 class="text-sm font-extrabold text-white uppercase tracking-wider text-amber-400">Available Fleet for Booking</h2>
+          <span id="fleetCountBadge" class="text-xs text-gray-400 font-mono">Loading...</span>
         </div>
 
-        <div class="flex items-center justify-between pt-1">
-          <div>
-            <h3 class="text-sm sm:text-base font-bold text-white">Maruti Suzuki Ertiga</h3>
-            <p class="text-xs text-gray-400">7 Seats &bull; Dual AC &bull; Family Friendly</p>
-          </div>
-          <a href="/cars" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black text-xs font-extrabold uppercase shadow-md transition-all">
-            Book Now
-          </a>
+        <div id="homepageFleetGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Dynamically populated from Cloud DB -->
         </div>
       </div>
 
       <!-- Quick 3 Pillars -->
-      <div class="grid grid-cols-3 gap-2.5 pt-1">
+      <div class="grid grid-cols-3 gap-2.5 pt-2">
         <div class="p-2.5 rounded-xl bg-[#14141a] border border-white/10 text-center">
-          <div class="text-sm sm:text-base font-bold text-white">7 Seats</div>
-          <div class="text-[10px] text-gray-400">Family Fit</div>
+          <div class="text-sm sm:text-base font-bold text-white">Full AC</div>
+          <div class="text-[10px] text-gray-400">Chilled Cabin</div>
         </div>
         <div class="p-2.5 rounded-xl bg-[#14141a] border border-white/10 text-center">
-          <div class="text-sm sm:text-base font-bold text-amber-400">Dual AC</div>
-          <div class="text-[10px] text-gray-400">Front &amp; Rear</div>
+          <div class="text-sm sm:text-base font-bold text-amber-400">Verified</div>
+          <div class="text-[10px] text-gray-400">Polite Driver</div>
         </div>
         <div class="p-2.5 rounded-xl bg-[#14141a] border border-white/10 text-center">
           <div class="text-sm sm:text-base font-bold text-white">Zero Adv</div>
@@ -118,16 +105,15 @@
     </div>
   </section>
 
-  <!-- ================= POPULAR ROUTES (COMPACT ON MOBILE) ================= -->
-  <section class="py-6 px-4">
+  <!-- ================= POPULAR ROUTES ================= -->
+  <section class="py-6 px-4 border-t border-white/5">
     <div class="max-w-4xl mx-auto space-y-3">
       <div class="flex items-center justify-between">
         <h2 class="text-base sm:text-lg font-extrabold text-white">Popular Trips</h2>
-        <a href="/cars" class="text-xs text-amber-400 font-semibold hover:underline">View All Cars &rarr;</a>
+        <a href="/cars" class="text-xs text-amber-400 font-semibold hover:underline">View Fleet Specs &rarr;</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <!-- Route 1 -->
         <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
           <div>
             <h4 class="text-xs font-bold text-white">Airport Pickup / Drop</h4>
@@ -136,7 +122,6 @@
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
 
-        <!-- Route 2 -->
         <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
           <div>
             <h4 class="text-xs font-bold text-white">Himachal Hill Stations</h4>
@@ -145,7 +130,6 @@
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
 
-        <!-- Route 3 -->
         <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
           <div>
             <h4 class="text-xs font-bold text-white">Local Full Day City Tour</h4>
@@ -157,7 +141,7 @@
     </div>
   </section>
 
-  <!-- ================= COMPACT REVIEWS (MAX 3 ON MOBILE) ================= -->
+  <!-- ================= COMPACT REVIEWS ================= -->
   <section class="py-6 px-4">
     <div class="max-w-4xl mx-auto space-y-3">
       <h2 class="text-base sm:text-lg font-extrabold text-white">Customer Reviews</h2>
@@ -202,12 +186,65 @@
     </div>
   </section>
 
-  <!-- ================= DIRECT WHATSAPP FLOATING BUTTON (MOBILE READY) ================= -->
+  <!-- ================= DIRECT WHATSAPP ACTION ================= -->
   <div class="max-w-4xl mx-auto px-4 pt-2">
-    <a id="mainWhatsAppBtn" href="https://wa.me/919876543210?text=Hello%20Bhatti%20Ji,%20mujhe%20Ertiga%20taxi%20ka%20rate%20aur%20booking%20poochhni%20hai" target="_blank" class="w-full py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
+    <a id="mainWhatsAppBtn" href="https://wa.me/919876543210" target="_blank" class="w-full py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
       <i data-lucide="message-circle" class="w-4 h-4"></i>
-      <span>Chat on WhatsApp &bull; Get Best Rate</span>
+      <span>Chat on WhatsApp &bull; Instant Rate Quote</span>
     </a>
+  </div>
+
+  <!-- ================= POP-UP MODAL: CUSTOMER TRIP DETAILS ================= -->
+  <div id="bookingModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#14141a] border border-amber-500/40 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+      <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-center mb-5">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center mb-2">
+          <i data-lucide="message-square" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white">Book Ride on WhatsApp</h3>
+        <p id="modalCarSubtitle" class="text-xs text-amber-400 font-semibold mt-0.5">Select Vehicle</p>
+      </div>
+
+      <form onsubmit="handleSendToWhatsApp(event)" class="space-y-3.5">
+        <input type="hidden" id="selectedCarName">
+        <input type="hidden" id="selectedCarRate">
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Your Full Name</label>
+          <input required id="clientName" type="text" placeholder="e.g. Jasmeet Singh" class="w-full px-4 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">From Where (Pickup Location)</label>
+          <input required id="clientPickup" type="text" placeholder="e.g. Model Town or Amritsar Airport" class="w-full px-4 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Final Destination (Drop Location)</label>
+          <input required id="clientDropoff" type="text" placeholder="e.g. Golden Temple or Jalandhar" class="w-full px-4 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Date</label>
+            <input required id="clientDate" type="date" class="w-full px-3 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Time</label>
+            <input required id="clientTime" type="time" value="09:00" class="w-full px-3 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full mt-3 py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Send Booking to WhatsApp</span>
+        </button>
+      </form>
+    </div>
   </div>
 
   <!-- ================= FOOTER ================= -->
@@ -218,7 +255,6 @@
         <p class="text-xs text-gray-400">Clean, reliable &amp; comfortable taxi service.</p>
       </div>
 
-      <!-- Mandatory Creator Credit Badge -->
       <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-full bg-[#121217] border border-white/10 hover:border-amber-500/40 text-xs text-gray-400 hover:text-white transition-all">
         <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
         <span>Created by <strong>Navraj Sandhu</strong> (@navraj_sxndhu)</span>
@@ -230,46 +266,130 @@
     lucide.createIcons();
 
     const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
+    let currentWhatsApp = '919876543210';
+    let loadedCars = [];
+
+    document.getElementById('clientDate').value = new Date().toISOString().split('T')[0];
 
     window.onload = async function() {
       // 1. Initial cached render
       const cachedNum = localStorage.getItem('bhatti_whatsapp_number') || '919876543210';
+      currentWhatsApp = cachedNum;
       updateContactButtons(cachedNum);
 
-      // 2. Sync from cloud
+      const cachedCars = localStorage.getItem('bhatti_fleet_cars');
+      if (cachedCars) {
+        try {
+          loadedCars = JSON.parse(cachedCars);
+          renderHomepageFleet(loadedCars);
+        } catch (e) {}
+      }
+
+      // 2. Fetch live data from Cloud DB
       try {
         const res = await fetch(CLOUD_DB_URL);
         if (res.ok) {
           const item = await res.json();
           if (item && item.data) {
-            const num = item.data.whatsapp_number || '919876543210';
-            updateContactButtons(num);
-            localStorage.setItem('bhatti_whatsapp_number', num);
+            if (item.data.whatsapp_number) {
+              currentWhatsApp = item.data.whatsapp_number;
+              localStorage.setItem('bhatti_whatsapp_number', currentWhatsApp);
+              updateContactButtons(currentWhatsApp);
+            }
 
-            // Update notice banner if enabled by admin
             if (item.data.notice_enabled && item.data.notice_text) {
               const banner = document.getElementById('topNoticeBanner');
               document.getElementById('topNoticeText').innerText = item.data.notice_text;
               banner.classList.remove('hidden');
             }
 
-            // Update primary car rate badge
             if (item.data.cars && item.data.cars.length > 0) {
-              const firstCar = item.data.cars[0];
-              document.getElementById('heroRateBadge').innerText = `From ₹${firstCar.rate_per_km} / km`;
-              if (firstCar.photo_url) {
-                document.getElementById('heroCarImg').src = firstCar.photo_url;
-              }
+              loadedCars = item.data.cars;
+              localStorage.setItem('bhatti_fleet_cars', JSON.stringify(loadedCars));
+              renderHomepageFleet(loadedCars);
             }
           }
         }
-      } catch (e) {}
+      } catch (e) {
+        console.warn('Sync fallback active');
+      }
     };
 
     function updateContactButtons(num) {
       const cleanNum = num.replace(/\+/g, '').replace(/\s+/g, '');
       document.getElementById('navCallBtn').href = `tel:+${cleanNum}`;
-      document.getElementById('mainWhatsAppBtn').href = `https://wa.me/${cleanNum}?text=Hello%20Bhatti%20Ji,%20mujhe%20Ertiga%20taxi%20ka%20rate%20aur%20booking%20poochhni%20hai`;
+      document.getElementById('mainWhatsAppBtn').href = `https://wa.me/${cleanNum}?text=Hello%20Bhatti%20Ji,%20mujhe%20taxi%20booking%20ki%20inquiry%20karni%20hai`;
+    }
+
+    function renderHomepageFleet(cars) {
+      const grid = document.getElementById('homepageFleetGrid');
+      document.getElementById('fleetCountBadge').innerText = `${cars.length} Available`;
+
+      grid.innerHTML = cars.map(car => `
+        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-4 shadow-xl space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="h-44 rounded-xl overflow-hidden bg-black/40 relative">
+              <img src="${car.photo_url}" alt="${car.name}" class="w-full h-full object-cover">
+              <div class="absolute bottom-2.5 left-2.5 bg-black/85 px-2.5 py-1 rounded-lg border border-white/10 text-xs font-bold text-amber-400 font-mono">
+                ₹${car.rate_per_km} / km
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-base font-bold text-white">${car.name}</h3>
+              <p class="text-xs text-gray-400 mt-0.5">${car.seats} Seats &bull; ${car.ac_type}</p>
+            </div>
+          </div>
+
+          <button onclick="openBookingModal('${car.name}', '${car.rate_per_km}')" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black text-xs font-extrabold uppercase shadow-md transition-all flex items-center justify-center gap-1.5">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+            <span>Book This Car</span>
+          </button>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function openBookingModal(carName, ratePerKm) {
+      document.getElementById('selectedCarName').value = carName;
+      document.getElementById('selectedCarRate').value = ratePerKm;
+      document.getElementById('modalCarSubtitle').innerText = `${carName} (Rate: ₹${ratePerKm}/km)`;
+      document.getElementById('bookingModal').classList.remove('hidden');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    }
+
+    function handleSendToWhatsApp(e) {
+      e.preventDefault();
+      const car = document.getElementById('selectedCarName').value;
+      const rate = document.getElementById('selectedCarRate').value;
+      const name = document.getElementById('clientName').value.trim();
+      const pickup = document.getElementById('clientPickup').value.trim();
+      const dropoff = document.getElementById('clientDropoff').value.trim();
+      const date = document.getElementById('clientDate').value;
+      const time = document.getElementById('clientTime').value;
+
+      const textMessage = 
+`*NEW TAXI BOOKING REQUEST*
+-----------------------------
+*Customer Name:* ${name}
+*Selected Car:* ${car} (₹${rate}/km)
+*Pickup From:* ${pickup}
+*Destination To:* ${dropoff}
+*Date:* ${date}
+*Time:* ${time}
+-----------------------------
+Hello Bhatti Tour and Travel, please confirm my booking for the above ride.`;
+
+      const encodedText = encodeURIComponent(textMessage);
+      const cleanPhone = currentWhatsApp.replace(/\+/g, '').replace(/\s+/g, '');
+      const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedText}`;
+
+      closeBookingModal();
+      window.open(whatsappUrl, '_blank');
     }
   </script>
 </body>

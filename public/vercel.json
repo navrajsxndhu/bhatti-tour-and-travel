@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "public": true,
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/cars", "destination": "/cars.html" },
-    { "source": "/admin", "destination": "/admin.html" }
-  ]
-}

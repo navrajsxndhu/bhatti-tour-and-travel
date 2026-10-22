@@ -3,51 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhatti Tour and Travel | Admin Control Panel</title>
+  <title>Bhatti Tour and Travel | Master Operations Console</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     body {
-      background-color: #0b0b0e;
+      background-color: #08080a;
       color: #f3f4f6;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
+    .mono { font-family: 'JetBrains Mono', monospace; }
   </style>
 </head>
-<body class="min-h-screen bg-[#0b0b0e] text-gray-100 flex flex-col justify-between">
+<body class="min-h-screen bg-[#08080a] text-gray-100 flex flex-col justify-between">
 
-  <!-- ================= TOP HEADER ================= -->
-  <header class="border-b border-white/10 bg-[#121217] px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
+  <!-- ================= TOP HEADER BAR ================= -->
+  <header class="border-b border-white/10 bg-[#0f0f14] px-4 py-3 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold">
           <i data-lucide="shield-check" class="w-5 h-5"></i>
         </div>
         <div>
-          <h1 class="text-base font-extrabold text-white">Bhatti Tour &amp; Travel</h1>
-          <p class="text-xs text-amber-400 font-medium flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            Cloud Sync Active &bull; All Devices Synced
-          </p>
+          <h1 class="text-sm font-extrabold text-white flex items-center gap-2">
+            BHATTI OPERATIONS CONSOLE
+            <span class="text-[9px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full font-mono">LIVE CLOUD</span>
+          </h1>
+          <p class="text-[11px] text-gray-400">Master Fleet &bull; Dispatch &bull; Rates &bull; Broadcast Engine</p>
         </div>
       </div>
 
       <div class="flex items-center gap-3">
-        <a href="/" class="text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
-          <i data-lucide="home" class="w-3.5 h-3.5"></i>
-          <span>View Website</span>
+        <a href="/" target="_blank" class="text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>Live Site</span>
         </a>
-        <a href="/cars" class="text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
-          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
-          <span>Cars Page</span>
-        </a>
-        <button id="logoutBtn" onclick="handleLogout()" class="hidden px-3.5 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold transition-all">
+        <button id="logoutBtn" onclick="handleLogout()" class="hidden px-3 py-1.5 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/30 text-xs font-bold transition-all">
           Logout
         </button>
       </div>
@@ -55,16 +52,16 @@
   </header>
 
   <!-- ================= MAIN CONTAINER ================= -->
-  <main class="flex-1 max-w-6xl w-full mx-auto p-6">
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6">
     
-    <!-- LOGIN BOX -->
+    <!-- LOGIN SCREEN -->
     <div id="loginSection" class="max-w-md mx-auto my-12 bg-[#121217] border border-white/10 rounded-2xl p-8 shadow-2xl">
       <div class="text-center mb-6">
         <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center mb-3">
           <i data-lucide="lock" class="w-6 h-6"></i>
         </div>
-        <h2 class="text-2xl font-bold text-white">Owner Login</h2>
-        <p class="text-xs text-gray-400 mt-1">Please enter your username and password</p>
+        <h2 class="text-xl font-bold text-white">Owner / Dispatcher Login</h2>
+        <p class="text-xs text-gray-400 mt-1">Enter your operations credentials</p>
       </div>
 
       <form onsubmit="handleLogin(event)" class="space-y-4">
@@ -76,52 +73,195 @@
           <label class="block text-xs font-semibold text-gray-300 mb-1">Password</label>
           <input required id="loginPass" type="password" placeholder="bhatti123" value="bhatti123" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
         </div>
-        <p id="loginError" class="text-xs text-red-400 hidden">Incorrect username or password</p>
+        <p id="loginError" class="text-xs text-red-400 hidden">Incorrect credentials</p>
         <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-sm uppercase tracking-wide transition-all shadow-lg">
-          Log In to Dashboard
+          Access Console
         </button>
       </form>
     </div>
 
-    <!-- DASHBOARD (AFTER LOGIN) -->
-    <div id="dashboardSection" class="hidden space-y-8">
+    <!-- DASHBOARD WORKSPACE (SHOWN AFTER LOGIN) -->
+    <div id="dashboardSection" class="hidden space-y-6">
       
-      <!-- 1. WHATSAPP SETTING CARD -->
-      <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 shadow-lg">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
-              <h2 class="text-lg font-bold text-white">Booking WhatsApp Number</h2>
-            </div>
-            <p class="text-xs text-gray-400 mt-1">When any customer books a ride, this WhatsApp number receives their details automatically across all phones and laptops.</p>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <input id="whatsappInput" type="text" placeholder="919876543210" class="px-4 py-2 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white font-mono focus:outline-none focus:border-amber-500 w-52">
-            <button id="saveWhatsAppBtn" onclick="saveWhatsAppNumber()" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-wide transition-all flex items-center gap-1.5">
-              <span>Save Number</span>
-            </button>
-          </div>
+      <!-- TOP METRIC CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
+          <span class="text-[11px] text-gray-400 uppercase font-semibold">Active Fleet</span>
+          <div id="metricTotalCars" class="text-2xl font-black text-white font-mono">1</div>
+          <span class="text-[10px] text-green-400 flex items-center gap-1">&bull; Ready for booking</span>
         </div>
-        <p id="whatsappSavedAlert" class="text-xs text-green-400 mt-2 font-medium hidden">WhatsApp number updated to Cloud! Live immediately on phones and laptops.</p>
+
+        <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
+          <span class="text-[11px] text-gray-400 uppercase font-semibold">WhatsApp Dispatch</span>
+          <div id="metricWhatsNum" class="text-sm font-bold text-amber-400 font-mono truncate">+91 9876543210</div>
+          <span class="text-[10px] text-gray-400">Synced across all devices</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
+          <span class="text-[11px] text-gray-400 uppercase font-semibold">Base Rate</span>
+          <div id="metricBaseRate" class="text-2xl font-black text-amber-400 font-mono">₹12/km</div>
+          <span class="text-[10px] text-gray-400">Lowest tier rate</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[#111116] border border-white/10 space-y-1">
+          <span class="text-[11px] text-gray-400 uppercase font-semibold">Notice Banner</span>
+          <div id="metricNoticeStatus" class="text-sm font-bold text-gray-400 font-mono">Disabled</div>
+          <span class="text-[10px] text-gray-400">Header broadcast alert</span>
+        </div>
       </div>
 
-      <!-- 2. FLEET MANAGEMENT HEADER -->
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="text-xl font-extrabold text-white">Manage Cars &amp; Rates</h2>
-          <p class="text-xs text-gray-400 mt-0.5">Any edits made here are instantly saved to the cloud and show up on all customers' phones.</p>
-        </div>
-        <button onclick="openCarModal()" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-wide flex items-center gap-2 shadow-lg transition-all">
-          <i data-lucide="plus" class="w-4 h-4"></i>
-          <span>Add New Car</span>
+      <!-- NAVIGATION TABS -->
+      <div class="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto text-xs font-bold">
+        <button onclick="switchTab('fleet')" id="tabBtnFleet" class="px-4 py-2 rounded-lg bg-amber-500 text-black transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="car" class="w-3.5 h-3.5"></i>
+          <span>Fleet &amp; Rates Manager</span>
+        </button>
+        <button onclick="switchTab('dispatch')" id="tabBtnDispatch" class="px-4 py-2 rounded-lg bg-white/5 text-gray-400 hover:text-white transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="phone-forwarded" class="w-3.5 h-3.5"></i>
+          <span>Dispatch &amp; WhatsApp Settings</span>
+        </button>
+        <button onclick="switchTab('broadcast')" id="tabBtnBroadcast" class="px-4 py-2 rounded-lg bg-white/5 text-gray-400 hover:text-white transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="megaphone" class="w-3.5 h-3.5"></i>
+          <span>Top Announcement Banner</span>
+        </button>
+        <button onclick="switchTab('calculator')" id="tabBtnCalculator" class="px-4 py-2 rounded-lg bg-white/5 text-gray-400 hover:text-white transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>Quote Calculator</span>
         </button>
       </div>
 
-      <!-- CARS TABLE / GRID -->
-      <div id="carsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Rendered by JavaScript -->
+      <!-- TAB 1: FLEET & RATES MANAGER -->
+      <div id="panelFleet" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-base font-bold text-white">Fleet Inventory</h3>
+            <p class="text-xs text-gray-400">Vehicles listed here immediately update on customer phones in ID Card format.</p>
+          </div>
+          <button onclick="openCarModal()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase flex items-center gap-1.5 shadow-md">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>Add Vehicle</span>
+          </button>
+        </div>
+
+        <div id="carsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Cars list -->
+        </div>
+      </div>
+
+      <!-- TAB 2: DISPATCH & WHATSAPP SETTINGS -->
+      <div id="panelDispatch" class="hidden space-y-4">
+        <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 max-w-2xl space-y-4 shadow-xl">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+              Primary WhatsApp Dispatch Number
+            </h3>
+            <p class="text-xs text-gray-400 mt-1">
+              Every customer booking submission on their phone redirects directly to this WhatsApp number with the automated message.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">WhatsApp Mobile Number (Country code + 10 digits)</label>
+              <div class="flex gap-2">
+                <input id="settingWhatsApp" type="text" placeholder="919876543210" class="flex-1 px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white font-mono focus:outline-none focus:border-amber-500">
+                <button onclick="saveWhatsAppSetting()" id="saveWhatsAppBtn" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase tracking-wide shadow-md transition-all">
+                  Save Number
+                </button>
+              </div>
+              <span class="text-[11px] text-gray-500 mt-1 block">Example: 919876543210 (Do not add + or spaces)</span>
+            </div>
+
+            <div id="whatsappSavedMsg" class="p-3 rounded-xl bg-green-500/10 border border-green-500/30 text-xs text-green-400 hidden">
+              &check; WhatsApp number saved to Cloud! All customer devices now route to this number immediately.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: ANNOUNCEMENT BANNER -->
+      <div id="panelBroadcast" class="hidden space-y-4">
+        <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 max-w-2xl space-y-4 shadow-xl">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="megaphone" class="w-5 h-5 text-amber-400"></i>
+              Top Website Announcement Banner
+            </h3>
+            <p class="text-xs text-gray-400 mt-1">
+              Show an urgent banner at the very top of your website on all customer phones (e.g. "Festive Discount", "Special Wedding Discount").
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="broadcastToggle" class="w-4 h-4 accent-amber-500 rounded cursor-pointer">
+              <label for="broadcastToggle" class="text-xs font-bold text-white cursor-pointer">Enable Top Banner on Website</label>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Banner Text Message</label>
+              <input id="broadcastTextInput" type="text" placeholder="e.g. Diwali &amp; Wedding Special: Flat 10% Discount on Outstation Trips!" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+            </div>
+
+            <button onclick="saveBroadcastSetting()" id="saveBroadcastBtn" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase tracking-wide shadow-md transition-all">
+              Publish Banner to Live Site
+            </button>
+
+            <div id="broadcastSavedMsg" class="p-3 rounded-xl bg-green-500/10 border border-green-500/30 text-xs text-green-400 hidden">
+              &check; Announcement banner updated and published live!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: FARE & QUOTE CALCULATOR -->
+      <div id="panelCalculator" class="hidden space-y-4">
+        <div class="bg-[#121217] border border-white/10 rounded-2xl p-6 max-w-2xl space-y-4 shadow-xl">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="calculator" class="w-5 h-5 text-amber-400"></i>
+              Customer Trip Rate Estimator
+            </h3>
+            <p class="text-xs text-gray-400 mt-1">Calculate instant quotes when a customer calls you or asks on WhatsApp.</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Select Vehicle</label>
+              <select id="calcCarSelect" onchange="runCalculation()" class="w-full px-3 py-2 rounded-xl bg-[#1a1a22] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+                <!-- Injected -->
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Total Kilometers (KM)</label>
+              <input id="calcKmInput" type="number" value="250" oninput="runCalculation()" class="w-full px-3 py-2 rounded-xl bg-[#1a1a22] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Estimated Toll Charges (₹)</label>
+              <input id="calcTollInput" type="number" value="350" oninput="runCalculation()" class="w-full px-3 py-2 rounded-xl bg-[#1a1a22] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Driver Allowance / Day (₹)</label>
+              <input id="calcDriverInput" type="number" value="300" oninput="runCalculation()" class="w-full px-3 py-2 rounded-xl bg-[#1a1a22] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+            </div>
+          </div>
+
+          <!-- Total Estimation Result -->
+          <div class="p-4 rounded-xl bg-black/60 border border-amber-500/30 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-400 uppercase font-semibold">Total Estimated Fare</span>
+              <div id="calcTotalDisplay" class="text-2xl font-black text-amber-400 font-mono">₹3,650</div>
+            </div>
+            <button onclick="copyQuoteForWhatsApp()" class="px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-black text-xs font-extrabold uppercase flex items-center gap-1.5 shadow">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copy Quote</span>
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -129,60 +269,59 @@
   </main>
 
   <!-- ================= CAR ADD/EDIT MODAL ================= -->
-  <div id="carModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-[#121217] border border-white/10 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+  <div id="carModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#121217] border border-white/15 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
-        <h3 id="modalTitle" class="text-lg font-bold text-white">Add New Car</h3>
+        <h3 id="modalTitle" class="text-base font-bold text-white">Add New Vehicle</h3>
         <button onclick="closeCarModal()" class="text-gray-400 hover:text-white">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <form onsubmit="handleCarSubmit(event)" class="space-y-4">
+      <form onsubmit="handleCarSubmit(event)" class="space-y-3.5">
         <input type="hidden" id="editCarId">
 
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1">Car Name / Model</label>
-          <input required id="carNameInput" type="text" placeholder="e.g. Maruti Suzuki Ertiga" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+          <input required id="carNameInput" type="text" placeholder="e.g. Maruti Suzuki Ertiga" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Photo URL (Web link to car photo)</label>
-          <input required id="carPhotoInput" type="url" placeholder="https://..." class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
-          <span class="text-[10px] text-gray-400">Tip: Paste any clean image link from internet or Unsplash.</span>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Photo Web URL</label>
+          <input required id="carPhotoInput" type="url" placeholder="https://..." class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-semibold text-gray-300 mb-1">Seats (Passengers)</label>
-            <input required id="carSeatsInput" type="number" min="1" max="20" value="7" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+            <input required id="carSeatsInput" type="number" min="1" max="20" value="7" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
           </div>
           <div>
             <label class="block text-xs font-semibold text-gray-300 mb-1">Rate Per KM (₹)</label>
-            <input required id="carRateInput" type="number" step="0.5" min="5" value="12" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+            <input required id="carRateInput" type="number" step="0.5" min="5" value="12" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-semibold text-gray-300 mb-1">AC Type</label>
-            <input id="carAcInput" type="text" placeholder="Dual AC (Front & Rear)" value="Dual AC (Front & Rear)" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+            <input id="carAcInput" type="text" placeholder="Dual AC (Front & Rear)" value="Dual AC (Front & Rear)" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
           </div>
           <div>
             <label class="block text-xs font-semibold text-gray-300 mb-1">Luggage Space</label>
-            <input id="carLuggageInput" type="text" placeholder="3 Big Suitcases" value="3 Big Suitcases" class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+            <input id="carLuggageInput" type="text" placeholder="3 Big Suitcases" value="3 Big Suitcases" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
           </div>
         </div>
 
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1">Short Description</label>
-          <textarea id="carDescInput" rows="2" placeholder="Clean, comfortable, and reliable for family trips." class="w-full px-4 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
+          <textarea id="carDescInput" rows="2" placeholder="Clean, comfortable, and reliable for family trips." class="w-full px-3.5 py-2.5 rounded-xl bg-[#1a1a22] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
         </div>
 
         <div class="pt-3 flex justify-end gap-3 border-t border-white/10">
           <button type="button" onclick="closeCarModal()" class="px-4 py-2 rounded-xl border border-white/20 text-xs text-gray-300 hover:text-white">Cancel</button>
-          <button id="saveCarBtn" type="submit" class="px-6 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-wide">
-            Save Car (Cloud Sync)
+          <button id="saveCarBtn" type="submit" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase">
+            Save &amp; Sync to Cloud
           </button>
         </div>
       </form>
@@ -190,18 +329,17 @@
   </div>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-white/10 bg-[#0b0b0e] py-6 px-6 text-center text-xs text-gray-500">
-    Bhatti Tour and Travel Admin Panel &bull; Protected &bull; Created by <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" class="text-amber-400 font-semibold hover:underline">Navraj Sandhu (@navraj_sxndhu)</a>
+  <footer class="border-t border-white/10 bg-[#08080a] py-4 px-4 text-center text-xs text-gray-500">
+    Bhatti Operations Console &bull; Protected &bull; Created by <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" class="text-amber-400 font-semibold hover:underline">Navraj Sandhu (@navraj_sxndhu)</a>
   </footer>
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- ================= MASTER JAVASCRIPT ================= -->
   <script>
     lucide.createIcons();
 
-    // Central Cloud Database Endpoint (Syncs immediately with Phones & Laptops)
     const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
 
-    // Default Fleet Fallback
+    // Default Fleet
     const DEFAULT_CARS = [
       {
         id: 1,
@@ -217,11 +355,11 @@
 
     let allCars = DEFAULT_CARS;
     let currentWhatsApp = '919876543210';
+    let noticeEnabled = false;
+    let noticeText = '';
 
-    // Check login state on load
     window.onload = function() {
-      const token = sessionStorage.getItem('bhatti_admin_token');
-      if (token) {
+      if (sessionStorage.getItem('bhatti_admin_token')) {
         showDashboard();
       }
     };
@@ -230,16 +368,12 @@
       e.preventDefault();
       const user = document.getElementById('loginUser').value.trim();
       const pass = document.getElementById('loginPass').value.trim();
-      const errorMsg = document.getElementById('loginError');
-
-      // Admin Authentication Check
       if (user === 'admin' && pass === 'bhatti123') {
-        sessionStorage.setItem('bhatti_admin_token', 'bhatti_auth_token_99');
-        errorMsg.classList.add('hidden');
+        sessionStorage.setItem('bhatti_admin_token', 'bhatti_auth_99');
+        document.getElementById('loginError').classList.add('hidden');
         showDashboard();
       } else {
-        errorMsg.innerText = 'Incorrect username or password (default: admin / bhatti123)';
-        errorMsg.classList.remove('hidden');
+        document.getElementById('loginError').classList.remove('hidden');
       }
     }
 
@@ -257,6 +391,22 @@
       await syncFromCloud();
     }
 
+    function switchTab(tab) {
+      ['fleet', 'dispatch', 'broadcast', 'calculator'].forEach(t => {
+        document.getElementById(`panel${t.charAt(0).toUpperCase() + t.slice(1)}`).classList.add('hidden');
+        const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        btn.classList.remove('bg-amber-500', 'text-black');
+        btn.classList.add('bg-white/5', 'text-gray-400');
+      });
+
+      const activeBtn = document.getElementById(`tabBtn${tab.charAt(0).toUpperCase() + tab.slice(1)}`);
+      activeBtn.classList.add('bg-amber-500', 'text-black');
+      activeBtn.classList.remove('bg-white/5', 'text-gray-400');
+
+      document.getElementById(`panel${tab.charAt(0).toUpperCase() + tab.slice(1)}`).classList.remove('hidden');
+      if (tab === 'calculator') populateCalcSelect();
+    }
+
     async function syncFromCloud() {
       try {
         const res = await fetch(CLOUD_DB_URL);
@@ -265,24 +415,37 @@
           if (item && item.data) {
             currentWhatsApp = item.data.whatsapp_number || '919876543210';
             allCars = item.data.cars && item.data.cars.length > 0 ? item.data.cars : DEFAULT_CARS;
-            
-            // Backup to local storage for offline
+            noticeEnabled = !!item.data.notice_enabled;
+            noticeText = item.data.notice_text || '';
+
             localStorage.setItem('bhatti_whatsapp_number', currentWhatsApp);
             localStorage.setItem('bhatti_fleet_cars', JSON.stringify(allCars));
           }
         }
       } catch (e) {
-        // Fallback to local storage
-        const savedNum = localStorage.getItem('bhatti_whatsapp_number');
-        if (savedNum) currentWhatsApp = savedNum;
         const savedCars = localStorage.getItem('bhatti_fleet_cars');
         if (savedCars) {
           try { allCars = JSON.parse(savedCars); } catch (err) {}
         }
       }
 
-      document.getElementById('whatsappInput').value = currentWhatsApp;
+      document.getElementById('settingWhatsApp').value = currentWhatsApp;
+      document.getElementById('broadcastToggle').checked = noticeEnabled;
+      document.getElementById('broadcastTextInput').value = noticeText;
+
+      updateMetricBadges();
       renderCars();
+      populateCalcSelect();
+      runCalculation();
+    }
+
+    function updateMetricBadges() {
+      document.getElementById('metricTotalCars').innerText = allCars.length;
+      document.getElementById('metricWhatsNum').innerText = '+' + currentWhatsApp;
+      const minRate = allCars.length > 0 ? Math.min(...allCars.map(c => c.rate_per_km)) : 12;
+      document.getElementById('metricBaseRate').innerText = `₹${minRate}/km`;
+      document.getElementById('metricNoticeStatus').innerText = noticeEnabled ? 'Active' : 'Disabled';
+      document.getElementById('metricNoticeStatus').className = noticeEnabled ? 'text-sm font-bold text-green-400 font-mono' : 'text-sm font-bold text-gray-400 font-mono';
     }
 
     async function pushToCloud() {
@@ -290,15 +453,16 @@
         name: 'bhatti_tour_and_travel_production_db',
         data: {
           whatsapp_number: currentWhatsApp,
-          cars: allCars
+          cars: allCars,
+          notice_enabled: noticeEnabled,
+          notice_text: noticeText
         }
       };
 
-      // Always save locally immediately
       localStorage.setItem('bhatti_whatsapp_number', currentWhatsApp);
       localStorage.setItem('bhatti_fleet_cars', JSON.stringify(allCars));
+      updateMetricBadges();
 
-      // Push to Cloud API so phones see changes immediately
       try {
         await fetch(CLOUD_DB_URL, {
           method: 'PUT',
@@ -306,25 +470,35 @@
           body: JSON.stringify(payload)
         });
       } catch (err) {
-        console.error('Cloud sync error:', err);
+        console.error('Cloud push failed:', err);
       }
     }
 
-    async function saveWhatsAppNumber() {
-      const num = document.getElementById('whatsappInput').value.trim().replace(/\+/g, '').replace(/\s+/g, '');
+    async function saveWhatsAppSetting() {
+      const num = document.getElementById('settingWhatsApp').value.trim().replace(/\+/g, '').replace(/\s+/g, '');
       if (!num) return;
 
       const btn = document.getElementById('saveWhatsAppBtn');
       btn.innerText = 'Saving...';
-      btn.disabled = true;
-
       currentWhatsApp = num;
       await pushToCloud();
-
       btn.innerText = 'Save Number';
-      btn.disabled = false;
 
-      const alertBox = document.getElementById('whatsappSavedAlert');
+      const alertBox = document.getElementById('whatsappSavedMsg');
+      alertBox.classList.remove('hidden');
+      setTimeout(() => alertBox.classList.add('hidden'), 3500);
+    }
+
+    async function saveBroadcastSetting() {
+      noticeEnabled = document.getElementById('broadcastToggle').checked;
+      noticeText = document.getElementById('broadcastTextInput').value.trim();
+
+      const btn = document.getElementById('saveBroadcastBtn');
+      btn.innerText = 'Publishing...';
+      await pushToCloud();
+      btn.innerText = 'Publish Banner to Live Site';
+
+      const alertBox = document.getElementById('broadcastSavedMsg');
       alertBox.classList.remove('hidden');
       setTimeout(() => alertBox.classList.add('hidden'), 3500);
     }
@@ -333,64 +507,42 @@
       const container = document.getElementById('carsGrid');
       container.innerHTML = '';
 
-      if (allCars.length === 0) {
-        container.innerHTML = '<div class="col-span-3 text-center py-12 text-gray-400 text-sm">No cars added yet. Click "Add New Car" above.</div>';
-        return;
-      }
-
       allCars.forEach(car => {
         const card = document.createElement('div');
-        card.className = 'bg-[#121217] border border-white/10 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between';
+        card.className = 'bg-[#121217] border border-white/10 rounded-xl overflow-hidden shadow flex flex-col justify-between';
         card.innerHTML = `
           <div>
-            <div class="h-44 bg-[#1a1a22] overflow-hidden relative">
+            <div class="h-36 bg-[#1a1a22] overflow-hidden relative">
               <img src="${car.photo_url}" alt="${car.name}" class="w-full h-full object-cover">
-              <span class="absolute top-3 right-3 bg-black/80 border border-white/10 text-amber-400 font-bold text-xs px-2.5 py-1 rounded-lg">
+              <span class="absolute top-2.5 right-2.5 bg-black/85 border border-white/10 text-amber-400 font-bold text-xs px-2 py-0.5 rounded font-mono">
                 ₹${car.rate_per_km} / km
               </span>
             </div>
-
-            <div class="p-5 space-y-2.5">
-              <h3 class="text-base font-bold text-white">${car.name}</h3>
-              
-              <div class="grid grid-cols-2 gap-2 text-xs text-gray-300">
-                <div class="flex items-center gap-1.5">
-                  <i data-lucide="users" class="w-3.5 h-3.5 text-amber-400"></i>
-                  <span>${car.seats} Seats</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <i data-lucide="snowflake" class="w-3.5 h-3.5 text-amber-400"></i>
-                  <span>${car.ac_type}</span>
-                </div>
-                <div class="flex items-center gap-1.5 col-span-2">
-                  <i data-lucide="luggage" class="w-3.5 h-3.5 text-amber-400"></i>
-                  <span>${car.luggage_capacity || 'Luggage space'}</span>
-                </div>
+            <div class="p-4 space-y-2">
+              <h4 class="text-sm font-bold text-white">${car.name}</h4>
+              <div class="grid grid-cols-2 gap-1.5 text-[11px] text-gray-300">
+                <span>&bull; ${car.seats} Seats</span>
+                <span>&bull; ${car.ac_type}</span>
               </div>
-
-              <p class="text-xs text-gray-400 line-clamp-2 mt-2">${car.description || ''}</p>
             </div>
           </div>
-
-          <div class="p-5 pt-0 flex gap-2 border-t border-white/5 mt-3">
-            <button onclick="editCar(${car.id})" class="flex-1 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-white flex items-center justify-center gap-1.5 transition-colors">
-              <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-              <span>Edit Details</span>
+          <div class="p-4 pt-0 flex gap-2 border-t border-white/5 mt-2">
+            <button onclick="editCar(${car.id})" class="flex-1 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white">
+              Edit
             </button>
-            <button onclick="deleteCar(${car.id})" class="px-3 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-semibold flex items-center justify-center transition-colors">
-              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            <button onclick="deleteCar(${car.id})" class="px-3 py-1.5 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-400 text-xs font-semibold">
+              Delete
             </button>
           </div>
         `;
         container.appendChild(card);
       });
-
       lucide.createIcons();
     }
 
     function openCarModal() {
       document.getElementById('editCarId').value = '';
-      document.getElementById('modalTitle').innerText = 'Add New Car';
+      document.getElementById('modalTitle').innerText = 'Add New Vehicle';
       document.getElementById('carNameInput').value = '';
       document.getElementById('carPhotoInput').value = '';
       document.getElementById('carSeatsInput').value = 7;
@@ -405,7 +557,7 @@
       const car = allCars.find(c => c.id === id);
       if (!car) return;
       document.getElementById('editCarId').value = car.id;
-      document.getElementById('modalTitle').innerText = 'Edit Car: ' + car.name;
+      document.getElementById('modalTitle').innerText = 'Edit Vehicle: ' + car.name;
       document.getElementById('carNameInput').value = car.name;
       document.getElementById('carPhotoInput').value = car.photo_url;
       document.getElementById('carSeatsInput').value = car.seats;
@@ -424,8 +576,7 @@
       e.preventDefault();
       const id = document.getElementById('editCarId').value;
       const saveBtn = document.getElementById('saveCarBtn');
-      saveBtn.innerText = 'Saving to Cloud...';
-      saveBtn.disabled = true;
+      saveBtn.innerText = 'Saving...';
 
       const newCarData = {
         name: document.getElementById('carNameInput').value.trim(),
@@ -438,30 +589,50 @@
       };
 
       if (id) {
-        // Update existing
         const carIndex = allCars.findIndex(c => c.id === parseInt(id));
-        if (carIndex !== -1) {
-          allCars[carIndex] = { ...allCars[carIndex], ...newCarData };
-        }
+        if (carIndex !== -1) allCars[carIndex] = { ...allCars[carIndex], ...newCarData };
       } else {
-        // Add new
         const newId = allCars.length > 0 ? Math.max(...allCars.map(c => c.id)) + 1 : 1;
         allCars.push({ id: newId, ...newCarData });
       }
 
       await pushToCloud();
-      saveBtn.innerText = 'Save Car (Cloud Sync)';
-      saveBtn.disabled = false;
-
+      saveBtn.innerText = 'Save & Sync to Cloud';
       closeCarModal();
       renderCars();
     }
 
     async function deleteCar(id) {
-      if (!confirm('Are you sure you want to remove this car? It will be removed across all devices.')) return;
+      if (!confirm('Are you sure you want to remove this car?')) return;
       allCars = allCars.filter(c => c.id !== id);
       await pushToCloud();
       renderCars();
+    }
+
+    // CALCULATOR
+    function populateCalcSelect() {
+      const sel = document.getElementById('calcCarSelect');
+      sel.innerHTML = allCars.map(c => `<option value="${c.rate_per_km}">${c.name} (₹${c.rate_per_km}/km)</option>`).join('');
+    }
+
+    function runCalculation() {
+      const rate = parseFloat(document.getElementById('calcCarSelect').value) || 12;
+      const km = parseFloat(document.getElementById('calcKmInput').value) || 0;
+      const toll = parseFloat(document.getElementById('calcTollInput').value) || 0;
+      const driver = parseFloat(document.getElementById('calcDriverInput').value) || 0;
+
+      const total = Math.round((km * rate) + toll + driver);
+      document.getElementById('calcTotalDisplay').innerText = '₹' + total.toLocaleString('en-IN');
+    }
+
+    function copyQuoteForWhatsApp() {
+      const carName = document.getElementById('calcCarSelect').options[document.getElementById('calcCarSelect').selectedIndex].text;
+      const km = document.getElementById('calcKmInput').value;
+      const total = document.getElementById('calcTotalDisplay').innerText;
+
+      const text = `*BHATTI TOUR AND TRAVEL QUOTE*\nVehicle: ${carName}\nEstimated Distance: ${km} KM\n*Total Estimated Quote:* ${total}\n\nCall/WhatsApp: +${currentWhatsApp}`;
+      navigator.clipboard.writeText(text);
+      alert('Quote copied to clipboard! You can paste directly into WhatsApp.');
     }
   </script>
 </body>

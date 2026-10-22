@@ -2,8 +2,8 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhatti Tour and Travel | Clean Maruti Ertiga Taxi & Tours</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bhatti Tour and Travel | Clean Maruti Ertiga Taxi</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,594 +17,259 @@
       background-color: #0b0b0e;
       color: #f3f4f6;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
-<body class="bg-[#0b0b0e] text-gray-100 antialiased selection:bg-amber-500 selection:text-black">
+<body class="bg-[#0b0b0e] text-gray-100 antialiased selection:bg-amber-500 selection:text-black pb-12">
+
+  <!-- ================= TOP NOTICE BANNER (CONTROLLED BY ADMIN) ================= -->
+  <div id="topNoticeBanner" class="hidden bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-black text-xs font-bold py-2 px-4 text-center">
+    <span id="topNoticeText">Welcome to Bhatti Tour &amp; Travel</span>
+  </div>
 
   <!-- ================= TOP NAVIGATION ================= -->
-  <header class="fixed top-0 left-0 right-0 z-40 bg-[#121217]/90 backdrop-blur-md border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
+  <header class="sticky top-0 z-40 bg-[#121217]/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
       
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
-          <i data-lucide="car" class="w-5 h-5"></i>
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+          <i data-lucide="car" class="w-4 h-4"></i>
         </div>
         <div>
-          <span class="text-base font-extrabold text-white tracking-wide block leading-none">BHATTI</span>
-          <span class="text-[10px] text-amber-400 font-semibold tracking-wider uppercase">Tour &amp; Travel</span>
+          <span class="text-sm sm:text-base font-extrabold text-white tracking-wide block leading-none">BHATTI</span>
+          <span class="text-[9px] text-amber-400 font-semibold tracking-wider uppercase">Tour &amp; Travel</span>
         </div>
       </a>
 
-      <!-- Quick Nav Links -->
-      <nav class="hidden sm:flex items-center gap-6 text-sm font-semibold text-gray-400">
-        <a href="/" class="text-white">Home</a>
-        <a href="/cars" class="hover:text-amber-400 text-amber-400 font-bold transition-colors">Our Cars</a>
-        <a href="#howitworks" class="hover:text-white transition-colors">How It Works</a>
-        <a href="#popular-tours" class="hover:text-white transition-colors">Popular Tours</a>
-        <a href="#reviews" class="hover:text-white transition-colors">Customer Reviews</a>
-        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
-        <a href="/admin" class="hover:text-white transition-colors flex items-center gap-1.5 text-xs bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span>Admin</span>
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-2.5">
+        <a href="/cars" class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-full hover:bg-amber-500 hover:text-black transition-all">
+          Our Cars
         </a>
-      </nav>
-
-      <!-- Direct Call Button -->
-      <a id="navCallBtn" href="tel:+919876543210" class="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-wide flex items-center gap-2 transition-all shadow-md">
-        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
-        <span>Call Driver</span>
-      </a>
+        <a id="navCallBtn" href="tel:+919876543210" class="w-8 h-8 rounded-full bg-amber-500 text-black flex items-center justify-center font-bold shadow-md">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="pt-32 pb-16 px-6 relative overflow-hidden">
-    <!-- Ambient subtle background glow -->
-    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+  <!-- ================= HERO SECTION (CLEAN & MOBILE OPTIMIZED) ================= -->
+  <section class="pt-6 pb-6 px-4">
+    <div class="max-w-4xl mx-auto space-y-4">
       
-      <!-- Left Content -->
-      <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-semibold">
-          <i data-lucide="check" class="w-3.5 h-3.5"></i>
-          100% Clean Cab &bull; No Advance Needed &bull; Family Friendly
-        </div>
-
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Apni Hi Gaadi Samjho! <br>
-          <span class="text-amber-400">Comfortable Maruti Ertiga (7-Seater)</span> Taxi Service
-        </h1>
-
-        <p class="text-base text-gray-300 max-w-xl font-normal leading-relaxed">
-          Yaar kisi rishtedaar ki shaadi mein jaana ho, airport drop chahiye, ya poori family ke sath Himachal ghoomne ka plan ho — Bhatti Tour &amp; Travel hai na! Ekdum saaf gaadi, mast thandi AC aur friendly driver jo bilkul ghar ke bande jaise drive karega.
-        </p>
-
-        <!-- Quick Badges -->
-        <div class="grid grid-cols-3 gap-3 pt-2 max-w-md mx-auto lg:mx-0">
-          <div class="p-3 rounded-xl bg-[#14141a] border border-white/10 text-center">
-            <div class="text-xl font-bold text-white">7 Seater</div>
-            <div class="text-[11px] text-gray-400 mt-0.5">Poori Family Fit</div>
-          </div>
-          <div class="p-3 rounded-xl bg-[#14141a] border border-white/10 text-center">
-            <div class="text-xl font-bold text-amber-400">Chilled AC</div>
-            <div class="text-[11px] text-gray-400 mt-0.5">Aage &bull; Peeche Vents</div>
-          </div>
-          <div class="p-3 rounded-xl bg-[#14141a] border border-white/10 text-center">
-            <div class="text-xl font-bold text-white">Best Rate</div>
-            <div class="text-[11px] text-gray-400 mt-0.5">WhatsApp Pe Discuss</div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="pt-3 flex flex-wrap gap-3 justify-center lg:justify-start">
-          <a href="/cars" class="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-sm flex items-center gap-2 transition-all shadow-lg">
-            <i data-lucide="car" class="w-4 h-4"></i>
-            <span>Gaadi Check Karo &amp; Book Karo</span>
-          </a>
-          <a href="https://wa.me/919876543210?text=Hello%20Bhatti%20Ji,%20mujhe%20Ertiga%20taxi%20ka%20rate%20aur%20booking%20poochhni%20hai" target="_blank" class="px-6 py-3.5 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-medium text-sm flex items-center gap-2 transition-all">
-            <i data-lucide="message-circle" class="w-4 h-4 text-green-400"></i>
-            <span>WhatsApp Pe Rate Poocho</span>
-          </a>
-        </div>
+      <!-- Status Pill -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/15 border border-green-500/30 text-green-400 text-xs font-semibold">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span id="heroAvailabilityText">Available 24x7 for Local &amp; Outstation</span>
       </div>
 
-      <!-- Right Car Card Banner -->
-      <div class="lg:col-span-5">
-        <div class="bg-[#14141a] border border-white/10 rounded-3xl p-5 shadow-2xl relative">
-          <div class="rounded-2xl overflow-hidden bg-black/40 relative">
-            <img 
-              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop" 
-              alt="Maruti Suzuki Ertiga" 
-              class="w-full h-64 object-cover"
-            />
-            <div class="absolute bottom-3 left-3 bg-black/85 px-3 py-1 rounded-lg border border-white/10 text-xs font-bold text-amber-400 font-mono">
-              Available 24x7 in Punjab &amp; North India
-            </div>
-          </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+        Apni Hi Gaadi Samjho! <br class="hidden sm:block">
+        <span class="text-amber-400">Maruti Ertiga (7-Seater) Taxi</span>
+      </h1>
 
-          <div class="mt-4 flex items-center justify-between">
-            <div>
-              <h3 class="text-base font-bold text-white">Maruti Suzuki Ertiga</h3>
-              <p class="text-xs text-gray-400">7 Seats &bull; Dual AC &bull; Extra Boot Space</p>
-            </div>
-            <a href="/cars" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black text-xs font-bold uppercase transition-all">
-              Book This Car
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= HOW BOOKING WORKS ================= -->
-  <section id="howitworks" class="py-16 border-t border-white/10 px-6 bg-[#0e0e12]">
-    <div class="max-w-5xl mx-auto text-center space-y-10">
-      <div>
-        <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider">Super Easy Process</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Booking Kaise Karni Hai? Sirf 3 Simple Steps!</h2>
-        <p class="text-xs sm:text-sm text-gray-400 mt-1">Koi advance payment ka chakkar nahi. Sidha WhatsApp pe trip batao aur best rate pao.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-        <div class="p-6 rounded-2xl bg-[#14141a] border border-white/10 space-y-3 relative">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">
-            1
-          </div>
-          <h3 class="text-base font-bold text-white">Gaadi Select Karo</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            Hamaare <strong>"Our Cars"</strong> page pe jao aur apni pasand ki car ke neeche <strong>"Book This Car"</strong> pe click karo.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-[#14141a] border border-amber-500/40 space-y-3 relative shadow-lg">
-          <div class="w-10 h-10 rounded-xl bg-amber-500 text-black flex items-center justify-center font-bold text-lg">
-            2
-          </div>
-          <h3 class="text-base font-bold text-white">Kaha Jaana Hai Batao</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            Ek chota sa pop-up khulega. Apna naam, pickup location, destination aur date daal kar button dabao.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-[#14141a] border border-white/10 space-y-3 relative">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">
-            3
-          </div>
-          <h3 class="text-base font-bold text-white">WhatsApp Pe Best Rate Pao!</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            Aapka WhatsApp automatically khul jayega with all details. Send dabao, hum turant sabse reasonable aur discount rate bata denge!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= POPULAR TOUR PACKAGES (NO HARDCODED PRICES) ================= -->
-  <section id="popular-tours" class="py-16 border-t border-white/10 px-6">
-    <div class="max-w-6xl mx-auto space-y-10">
-      
-      <div class="text-center max-w-xl mx-auto">
-        <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider">Sabse Jyada Demand Wale Routes</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Hamaare Popular Outstation &amp; Local Trips</h2>
-        <p class="text-xs sm:text-sm text-gray-400 mt-1">Apna route select karo aur WhatsApp par click karke direct best discount rate pooch lo.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Tour 1 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-5 space-y-4 hover:border-amber-500/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="h-40 rounded-xl overflow-hidden mb-3">
-              <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop" alt="Golden Temple Amritsar" class="w-full h-full object-cover">
-            </div>
-            <span class="text-[10px] uppercase font-bold px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-400">Local Sightseeing</span>
-            <h3 class="text-base font-bold text-white mt-1.5">Amritsar Darshan Package</h3>
-            <p class="text-xs text-gray-400 mt-1 leading-relaxed">
-              Golden Temple VIP Darshan, Jallianwala Bagh, Wagah Border parade ceremony aur authentic Kulcha joints ka full day aaramdayak tour.
-            </p>
-            <div class="mt-3 pt-3 border-t border-white/5 flex justify-between items-center text-xs">
-              <span class="text-gray-400">Plan: Full Day Local</span>
-              <span class="text-amber-400 font-bold flex items-center gap-1">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-400"></i>
-                Rate on WhatsApp
-              </span>
-            </div>
-          </div>
-          <a href="/cars" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-amber-500 hover:text-black text-xs font-bold uppercase text-center transition-all block mt-2">
-            Book Package on WhatsApp
-          </a>
-        </div>
-
-        <!-- Tour 2 -->
-        <div class="bg-[#14141a] border border-amber-500/40 rounded-2xl p-5 space-y-4 shadow-xl flex flex-col justify-between">
-          <div>
-            <div class="h-40 rounded-xl overflow-hidden mb-3">
-              <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=800&auto=format&fit=crop" alt="Himachal Hills Tour" class="w-full h-full object-cover">
-            </div>
-            <span class="text-[10px] uppercase font-bold px-2.5 py-0.5 rounded bg-amber-500 text-black">Hill Station Special</span>
-            <h3 class="text-base font-bold text-white mt-1.5">Himachal Tour (Dharamshala / Manali / Dalhousie)</h3>
-            <p class="text-xs text-gray-400 mt-1 leading-relaxed">
-              Pahadon ke safar ke liye expert driver jo safely ghumavdar mod par gaadi chalaye. Family aur bachon ke sath best customized trip.
-            </p>
-            <div class="mt-3 pt-3 border-t border-white/5 flex justify-between items-center text-xs">
-              <span class="text-gray-400">Plan: 2 to 5 Days Tour</span>
-              <span class="text-amber-400 font-bold flex items-center gap-1">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-400"></i>
-                Rate on WhatsApp
-              </span>
-            </div>
-          </div>
-          <a href="/cars" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black text-xs font-bold uppercase text-center transition-all block mt-2">
-            Book Hill Tour on WhatsApp
-          </a>
-        </div>
-
-        <!-- Tour 3 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-5 space-y-4 hover:border-amber-500/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="h-40 rounded-xl overflow-hidden mb-3">
-              <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop" alt="Delhi Punjab Highway" class="w-full h-full object-cover">
-            </div>
-            <span class="text-[10px] uppercase font-bold px-2.5 py-0.5 rounded bg-blue-500/20 text-blue-400">Highway Express</span>
-            <h3 class="text-base font-bold text-white mt-1.5">Delhi IGI Airport &bull; Chandigarh Express</h3>
-            <p class="text-xs text-gray-400 mt-1 leading-relaxed">
-              International flight pakadni ho ya Chandigarh PG/Hospital jaana ho. Safe highway driving aur time se pehle pahunchane ki guarantee.
-            </p>
-            <div class="mt-3 pt-3 border-t border-white/5 flex justify-between items-center text-xs">
-              <span class="text-gray-400">Plan: One-way / Round Trip</span>
-              <span class="text-amber-400 font-bold flex items-center gap-1">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-green-400"></i>
-                Rate on WhatsApp
-              </span>
-            </div>
-          </div>
-          <a href="/cars" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-amber-500 hover:text-black text-xs font-bold uppercase text-center transition-all block mt-2">
-            Book Highway Trip on WhatsApp
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= WHY BHATTI TOUR & TRAVEL (PROMISES) ================= -->
-  <section class="py-16 border-t border-white/10 px-6 bg-[#0e0e12]">
-    <div class="max-w-5xl mx-auto space-y-10">
-      <div class="text-center max-w-xl mx-auto">
-        <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider">Hamaare Pakke Vaade</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Kyun Hamari Ertiga Hi Best Hai?</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-        <div class="p-5 rounded-2xl bg-[#14141a] border border-white/10 text-center space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center font-bold">
-            <i data-lucide="spray-can" class="w-5 h-5"></i>
-          </div>
-          <h4 class="text-sm font-bold text-white">Khushboodar &amp; Saaf</h4>
-          <p class="text-xs text-gray-400">Har trip se pehle gaadi wash hoti hai. Bidi, cigarette ya kisi tarah ki bad smell nahi milegi.</p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-[#14141a] border border-white/10 text-center space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center font-bold">
-            <i data-lucide="smile" class="w-5 h-5"></i>
-          </div>
-          <h4 class="text-sm font-bold text-white">Bade-Buzurg Friendly</h4>
-          <p class="text-xs text-gray-400">Dadi-Nani ya chhote bache sath ho toh driver aaram se chalata hai, koi rash driving nahi.</p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-[#14141a] border border-white/10 text-center space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center font-bold">
-            <i data-lucide="music" class="w-5 h-5"></i>
-          </div>
-          <h4 class="text-sm font-bold text-white">Bluetooth &amp; Music</h4>
-          <p class="text-xs text-gray-400">Apna phone connect karo aur highway par mast Punjabi gaane ya bhajan sunte hue travel karo.</p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-[#14141a] border border-white/10 text-center space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center font-bold">
-            <i data-lucide="badge-percent" class="w-5 h-5"></i>
-          </div>
-          <h4 class="text-sm font-bold text-white">Zero Hidden Charges</h4>
-          <p class="text-xs text-gray-400">Jo rate WhatsApp pe finalize ho gaya wahi pakka hoga. Aakhri mein aake koi extra drama nahi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CUSTOMER REVIEWS (INDIAN NAMES & INFORMAL LANGUAGE) ================= -->
-  <section id="reviews" class="py-20 border-t border-white/10 px-6">
-    <div class="max-w-6xl mx-auto space-y-12">
-      
-      <div class="text-center max-w-xl mx-auto">
-        <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider">Customer Feedback</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Log Kya Kehte Hain Hamaare Baare Mein?</h2>
-        <p class="text-xs sm:text-sm text-gray-400 mt-1">Hamaare regular sawariyon ke genuine reviews (Full desi style mein!).</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Review 1 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-6 space-y-4 relative flex flex-col justify-between hover:border-amber-500/40 transition-all">
-          <div class="space-y-3">
-            <div class="flex items-center gap-1 text-amber-400">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
-              "Bhai sach bataun toh airport ke liye itna chill trip kabhi nahi raha. Subah 4 baje ki flight thi, Bhatti ji 3:45 pe gate pe horn baja rahe the! Gaadi ekdum chaka-chak saaf thi aur boot mein humare 4 bade suitcase aaram se fit ho gaye. Full 5 stars!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">
-              GS
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-white">Gurpreet Singh (Raju)</h4>
-              <span class="text-[11px] text-gray-400">Model Town, Amritsar &bull; Airport Trip</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="bg-[#14141a] border border-amber-500/30 rounded-2xl p-6 space-y-4 relative flex flex-col justify-between shadow-xl">
-          <div class="space-y-3">
-            <div class="flex items-center gap-1 text-amber-400">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
-              "Poori family ke sath Dalhousie aur Khajjiar ghoomne gaye the 3 din ke liye. Driver bhaiya ka nature itna shaandar tha ki humari mummy aur bache unhe family member hi maan baithe! Pahadi raste par bilkul jhatke nahi diye aur dhabe bhi best wale pe rukwaye jaha ka parantha lajawaab tha!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 font-bold flex items-center justify-center text-sm">
-              MS
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-white">Maninder Sharma</h4>
-              <span class="text-[11px] text-gray-400">Jalandhar Cantt &bull; Family Holiday Tour</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-6 space-y-4 relative flex flex-col justify-between hover:border-amber-500/40 transition-all">
-          <div class="space-y-3">
-            <div class="flex items-center gap-1 text-amber-400">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
-              "Website se WhatsApp par click kiya, 2 minute mein driver ne call karke booking confirm kar di. Na koi advance maanga, na koi faltu sawal. AC itna chill karta hai Ertiga ka ki peeche baithe hue bhi kambal mangne ka mann kare. Paisa vasool service!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-sm">
-              AK
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-white">Amanpreet Kaur</h4>
-              <span class="text-[11px] text-gray-400">Ludhiana &bull; Delhi Highway Drop</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 4 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-6 space-y-4 relative flex flex-col justify-between hover:border-amber-500/40 transition-all">
-          <div class="space-y-3">
-            <div class="flex items-center gap-1 text-amber-400">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
-              "Meri behen ki wedding ke liye poore 2 din ke liye book ki thi relatives ko railway station se hotel laane ke liye. Driver ne bina kisi shikayat ke 10 chakkar lagaye. Ek dum humble banda hai. Bhatti Tour walo ko hi call karunga aage se."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-sm">
-              HB
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-white">Harpreet Bawa</h4>
-              <span class="text-[11px] text-gray-400">Batala &bull; Wedding Duty Event</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 5 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-6 space-y-4 relative flex flex-col justify-between hover:border-amber-500/40 transition-all">
-          <div class="space-y-3">
-            <div class="flex items-center gap-1 text-amber-400">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
-              "Ola-Uber wale last moment pe cancel kar dete the Amritsar mein. Par Bhatti Tour and Travel wale commit karke aate hi aate hain. Rate bhi WhatsApp pe baat karke sabse genuine mila aur gaadi toh showroom condition mein thi. Bindass book karo sabhi!"
-            </p>
-          </div>
-          <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-red-500/20 text-red-400 font-bold flex items-center justify-center text-sm">
-              VG
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-white">Vikas Gupta</h4>
-              <span class="text-[11px] text-gray-400">Ranjit Avenue, Amritsar &bull; Local Business</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Review 6 -->
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-6 space-y-4 relative flex flex-col justify-between hover:border-amber-500/40 transition-all">
-          <div class="space-y-3">
-            <div class="flex items-center gap-1 text-amber-400">
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
-              "Chandigarh PGI doctor appointment ke liye papa ko leke gaye the. Driver sahab ne itne pyaar aur dhyan se gaadi chalayi ki papa ko bilkul thakan nahi hui. Aise honest log aaj kal mushkil se milte hain travel line mein."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-white/5 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">
-              SD
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-white">Simran Dhillon</h4>
-              <span class="text-[11px] text-gray-400">Tarn Taran &bull; Medical Emergency Drop</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= FREQUENTLY ASKED QUESTIONS (FAQ) ================= -->
-  <section id="faq" class="py-16 border-t border-white/10 px-6 bg-[#0e0e12]">
-    <div class="max-w-4xl mx-auto space-y-8">
-      
-      <div class="text-center max-w-xl mx-auto">
-        <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider">Aam Sawal-Jawab</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Kuch Sawal Hain Dimaag Mein?</h2>
-        <p class="text-xs sm:text-sm text-gray-400 mt-1">Aksar log humse ye baatein poochte hain, padh lijiye:</p>
-      </div>
-
-      <div class="space-y-4">
-        
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-5 space-y-2">
-          <h4 class="text-sm sm:text-base font-bold text-white flex items-center justify-between">
-            <span>Q1: Trip ka rate kaise pata chalega?</span>
-            <i data-lucide="help-circle" class="w-4 h-4 text-amber-400"></i>
-          </h4>
-          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
-            Sir/Madam aap bas WhatsApp par click karke hume apna pickup point aur destination bata dijiye. Hum aapko WhatsApp message par turant sabse reasonable aur best discounted rate bata denge.
-          </p>
-        </div>
-
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-5 space-y-2">
-          <h4 class="text-sm sm:text-base font-bold text-white flex items-center justify-between">
-            <span>Q2: Payment kab aur kaise karni hoti hai?</span>
-            <i data-lucide="help-circle" class="w-4 h-4 text-amber-400"></i>
-          </h4>
-          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
-            Sir/Madam koi advance dene ki tension nahi hai. Jab aapka safar aaram se khatam ho jaye, aap driver ko cash de sakte ho ya Google Pay / PhonePe / Paytm se UPI kar sakte ho.
-          </p>
-        </div>
-
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-5 space-y-2">
-          <h4 class="text-sm sm:text-base font-bold text-white flex items-center justify-between">
-            <span>Q3: Ertiga mein kitne log aur kitna samaan aa sakta hai?</span>
-            <i data-lucide="help-circle" class="w-4 h-4 text-amber-400"></i>
-          </h4>
-          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
-            Gaadi mein 6 sawariyan aaram se baith sakti hain (1 aage, 3 beech mein, aur 2 peeche) plus driver. Agar peeche 1 banda kam ho toh seat fold karke 3 se 4 bade suitcase aur bags aa jaate hain.
-          </p>
-        </div>
-
-        <div class="bg-[#14141a] border border-white/10 rounded-2xl p-5 space-y-2">
-          <h4 class="text-sm sm:text-base font-bold text-white flex items-center justify-between">
-            <span>Q4: Raat ko ya subah jaldi gaadi mil jayegi?</span>
-            <i data-lucide="help-circle" class="w-4 h-4 text-amber-400"></i>
-          </h4>
-          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
-            Haanji bilkul! Chahe raat ke 2 baje flight pakadni ho ya subah 4 baje nikalna ho, aap ek baar WhatsApp pe time bata do, gaadi time pe pahunch jayegi.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= BOTTOM CALL TO ACTION BANNER ================= -->
-  <section class="py-16 px-6">
-    <div class="max-w-5xl mx-auto rounded-3xl bg-gradient-to-r from-amber-500/20 via-[#14141a] to-amber-500/10 border border-amber-500/40 p-8 sm:p-12 text-center space-y-6 shadow-2xl">
-      <div class="w-12 h-12 rounded-2xl bg-amber-500 text-black mx-auto flex items-center justify-center font-bold">
-        <i data-lucide="message-square" class="w-6 h-6"></i>
-      </div>
-      <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Chalo Fir! Abhi WhatsApp Pe Rate Poocho</h2>
-      <p class="text-sm text-gray-300 max-w-lg mx-auto">
-        Kahi bhi jaana ho, ek baar Bhatti Tour and Travel ko WhatsApp par message karke rate pooch lo, hum aapko sabse badhiya aur sasta rate bata denge!
+      <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-xl">
+        Airport pickup &amp; drop, wedding ceremonies, ya family ke sath Himachal tour. Clean car, chilled AC, aur experienced driver. Direct WhatsApp pe rate decide karo.
       </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-        <a href="/cars" class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-sm uppercase tracking-wide flex items-center gap-2 shadow-lg transition-all">
-          <i data-lucide="car" class="w-4 h-4"></i>
-          <span>Check Cars &amp; Book</span>
+      <!-- Featured Car Card -->
+      <div class="bg-[#14141a] border border-white/10 rounded-2xl p-4 shadow-xl space-y-3">
+        <div class="h-48 sm:h-64 rounded-xl overflow-hidden bg-black/40 relative">
+          <img 
+            id="heroCarImg"
+            src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop" 
+            alt="Maruti Suzuki Ertiga Taxi" 
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute bottom-2.5 left-2.5 bg-black/85 px-2.5 py-1 rounded-lg border border-white/10 text-xs font-bold text-amber-400 font-mono">
+            <span id="heroRateBadge">From ₹12 / km</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-1">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-white">Maruti Suzuki Ertiga</h3>
+            <p class="text-xs text-gray-400">7 Seats &bull; Dual AC &bull; Family Friendly</p>
+          </div>
+          <a href="/cars" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-black text-xs font-extrabold uppercase shadow-md transition-all">
+            Book Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick 3 Pillars -->
+      <div class="grid grid-cols-3 gap-2.5 pt-1">
+        <div class="p-2.5 rounded-xl bg-[#14141a] border border-white/10 text-center">
+          <div class="text-sm sm:text-base font-bold text-white">7 Seats</div>
+          <div class="text-[10px] text-gray-400">Family Fit</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#14141a] border border-white/10 text-center">
+          <div class="text-sm sm:text-base font-bold text-amber-400">Dual AC</div>
+          <div class="text-[10px] text-gray-400">Front &amp; Rear</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#14141a] border border-white/10 text-center">
+          <div class="text-sm sm:text-base font-bold text-white">Zero Adv</div>
+          <div class="text-[10px] text-gray-400">Pay on Drop</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= POPULAR ROUTES (COMPACT ON MOBILE) ================= -->
+  <section class="py-6 px-4">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-base sm:text-lg font-extrabold text-white">Popular Trips</h2>
+        <a href="/cars" class="text-xs text-amber-400 font-semibold hover:underline">View All Cars &rarr;</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Route 1 -->
+        <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
+          <div>
+            <h4 class="text-xs font-bold text-white">Airport Pickup / Drop</h4>
+            <p class="text-[11px] text-gray-400">Amritsar &bull; Delhi IGI &bull; Chandigarh</p>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
-        <a href="https://wa.me/919876543210?text=Hello%20Bhatti%20Ji,%20mujhe%20apne%20trip%20ka%20rate%20poochna%20hai" target="_blank" class="px-8 py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-medium text-sm flex items-center gap-2 transition-all">
-          <i data-lucide="message-circle" class="w-4 h-4 text-green-400"></i>
-          <span>WhatsApp Pe Rate Poocho</span>
+
+        <!-- Route 2 -->
+        <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
+          <div>
+            <h4 class="text-xs font-bold text-white">Himachal Hill Stations</h4>
+            <p class="text-[11px] text-gray-400">Dharamshala &bull; Manali &bull; Dalhousie</p>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
+        </a>
+
+        <!-- Route 3 -->
+        <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
+          <div>
+            <h4 class="text-xs font-bold text-white">Local Full Day City Tour</h4>
+            <p class="text-[11px] text-gray-400">Golden Temple &bull; Wagah &bull; Shopping</p>
+          </div>
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
       </div>
     </div>
   </section>
 
+  <!-- ================= COMPACT REVIEWS (MAX 3 ON MOBILE) ================= -->
+  <section class="py-6 px-4">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <h2 class="text-base sm:text-lg font-extrabold text-white">Customer Reviews</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 space-y-2">
+          <div class="flex items-center gap-1 text-amber-400">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+          </div>
+          <p class="text-xs text-gray-300 italic">"Subah 4 baje flight thi, Bhatti ji 3:45 pe gate pe ready the. Gaadi ekdum clean aur comfortable thi."</p>
+          <div class="text-[11px] font-bold text-white">&mdash; Gurpreet Singh, Amritsar</div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 space-y-2">
+          <div class="flex items-center gap-1 text-amber-400">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+          </div>
+          <p class="text-xs text-gray-300 italic">"Family ke sath Dalhousie gaye the. Pahadi mod par bohot smoothly drive kiya, bache bhi safe feel kar rahe the."</p>
+          <div class="text-[11px] font-bold text-white">&mdash; Maninder Sharma, Jalandhar</div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 space-y-2">
+          <div class="flex items-center gap-1 text-amber-400">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+          </div>
+          <p class="text-xs text-gray-300 italic">"WhatsApp pe 2 minute mein rate bataya aur confirm kiya. Koi hidden charge nahi, payment drop pe di."</p>
+          <div class="text-[11px] font-bold text-white">&mdash; Amanpreet Kaur, Ludhiana</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DIRECT WHATSAPP FLOATING BUTTON (MOBILE READY) ================= -->
+  <div class="max-w-4xl mx-auto px-4 pt-2">
+    <a id="mainWhatsAppBtn" href="https://wa.me/919876543210?text=Hello%20Bhatti%20Ji,%20mujhe%20Ertiga%20taxi%20ka%20rate%20aur%20booking%20poochhni%20hai" target="_blank" class="w-full py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
+      <i data-lucide="message-circle" class="w-4 h-4"></i>
+      <span>Chat on WhatsApp &bull; Get Best Rate</span>
+    </a>
+  </div>
+
   <!-- ================= FOOTER ================= -->
-  <footer class="w-full border-t border-white/10 bg-[#0b0b0e] py-12 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      
-      <div class="text-center md:text-left">
-        <span class="font-extrabold text-white text-base">Bhatti Tour and Travel</span>
-        <p class="text-xs text-gray-400 mt-1">Honest, reliable &amp; clean Maruti Ertiga taxi service.</p>
-      </div>
-
-      <!-- Mandatory Creator Credit Badge & Instagram Link -->
-      <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#121217] border border-white/10 hover:border-amber-500/50 hover:bg-[#181820] shadow-lg transition-all duration-300">
-        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-        <p class="text-xs text-gray-400 group-hover:text-gray-200 transition-colors">
-          Created by <span class="font-bold text-white group-hover:text-amber-400 transition-colors">Navraj Sandhu</span>
-        </p>
-        <span class="text-xs text-amber-400/80 group-hover:text-amber-400 font-mono flex items-center gap-1 border-l border-white/10 pl-2.5">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          @navraj_sxndhu
-        </span>
-      </a>
-
-      <!-- Instagram Direct Icon Button -->
+  <footer class="w-full border-t border-white/10 bg-[#0b0b0e] py-8 px-4 mt-8">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
-        <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" aria-label="Navraj Sandhu on Instagram" class="w-10 h-10 rounded-full bg-[#121217] border border-white/10 flex items-center justify-center text-gray-400 hover:text-amber-400 hover:border-amber-400/50 hover:scale-105 transition-all">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
+        <span class="font-extrabold text-white text-sm">Bhatti Tour and Travel</span>
+        <p class="text-xs text-gray-400">Clean, reliable &amp; comfortable taxi service.</p>
       </div>
 
+      <!-- Mandatory Creator Credit Badge -->
+      <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-full bg-[#121217] border border-white/10 hover:border-amber-500/40 text-xs text-gray-400 hover:text-white transition-all">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>Created by <strong>Navraj Sandhu</strong> (@navraj_sxndhu)</span>
+      </a>
     </div>
   </footer>
 
   <script>
     lucide.createIcons();
+
+    const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
+
     window.onload = async function() {
+      // 1. Initial cached render
+      const cachedNum = localStorage.getItem('bhatti_whatsapp_number') || '919876543210';
+      updateContactButtons(cachedNum);
+
+      // 2. Sync from cloud
       try {
-        const res = await fetch('/api/settings');
-        const data = await res.json();
-        if (data.whatsapp_number) {
-          document.getElementById('navCallBtn').href = `tel:+${data.whatsapp_number}`;
+        const res = await fetch(CLOUD_DB_URL);
+        if (res.ok) {
+          const item = await res.json();
+          if (item && item.data) {
+            const num = item.data.whatsapp_number || '919876543210';
+            updateContactButtons(num);
+            localStorage.setItem('bhatti_whatsapp_number', num);
+
+            // Update notice banner if enabled by admin
+            if (item.data.notice_enabled && item.data.notice_text) {
+              const banner = document.getElementById('topNoticeBanner');
+              document.getElementById('topNoticeText').innerText = item.data.notice_text;
+              banner.classList.remove('hidden');
+            }
+
+            // Update primary car rate badge
+            if (item.data.cars && item.data.cars.length > 0) {
+              const firstCar = item.data.cars[0];
+              document.getElementById('heroRateBadge').innerText = `From ₹${firstCar.rate_per_km} / km`;
+              if (firstCar.photo_url) {
+                document.getElementById('heroCarImg').src = firstCar.photo_url;
+              }
+            }
+          }
         }
       } catch (e) {}
+    };
+
+    function updateContactButtons(num) {
+      const cleanNum = num.replace(/\+/g, '').replace(/\s+/g, '');
+      document.getElementById('navCallBtn').href = `tel:+${cleanNum}`;
+      document.getElementById('mainWhatsAppBtn').href = `https://wa.me/${cleanNum}?text=Hello%20Bhatti%20Ji,%20mujhe%20Ertiga%20taxi%20ka%20rate%20aur%20booking%20poochhni%20hai`;
     }
   </script>
 </body>

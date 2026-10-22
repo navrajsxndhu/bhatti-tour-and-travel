@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhatti Tour and Travel | Our Available Taxis</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #0b0b0e;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ID Card Styling */
+    .id-card {
+      background: #14141a;
+      border: 2px solid #282836;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .id-card:hover {
+      border-color: #f59e0b;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(245, 158, 11, 0.15);
+    }
+
+    /* ID Card Badge Lanyard slot simulation */
+    .id-slot {
+      width: 44px;
+      height: 6px;
+      background: #2a2a38;
+      border-radius: 4px;
+      margin: 12px auto 8px auto;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0b0b0e] text-gray-100 flex flex-col justify-between">
+
+  <!-- ================= TOP NAVIGATION ================= -->
+  <header class="border-b border-white/10 bg-[#121217] sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
+      
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+          <i data-lucide="car" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-base font-extrabold text-white tracking-wide block leading-none">BHATTI</span>
+          <span class="text-[10px] text-amber-400 font-semibold tracking-wider uppercase">Tour &amp; Travel</span>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-6 text-sm font-semibold text-gray-400">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/cars" class="text-amber-400 font-bold">Our Cars</a>
+        <a href="/admin" class="hover:text-white transition-colors flex items-center gap-1.5 text-xs bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Admin</span>
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-1">
+    
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <span class="text-xs uppercase font-extrabold text-amber-400 tracking-wider">Verified Travel Fleet</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Available Taxis &amp; Rates</h1>
+      <p class="text-xs sm:text-sm text-gray-400 mt-2">
+        Choose your car below. Click <strong>"Book This Car"</strong> to enter your trip details and send directly to our WhatsApp with one tap!
+      </p>
+    </div>
+
+    <!-- CARS CONTAINER (SCHOOL ID CARD FORMAT) -->
+    <div id="carsCardsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected by JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- ================= POP-UP MODAL: CUSTOMER TRIP DETAILS ================= -->
+  <div id="bookingModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#14141a] border border-amber-500/40 rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl relative">
+      
+      <!-- Close button -->
+      <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center mb-2">
+          <i data-lucide="message-square" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white">Book Ride on WhatsApp</h3>
+        <p id="modalCarSubtitle" class="text-xs text-amber-400 font-semibold mt-0.5">Maruti Suzuki Ertiga</p>
+      </div>
+
+      <form onsubmit="handleSendToWhatsApp(event)" class="space-y-4">
+        <input type="hidden" id="selectedCarName">
+        <input type="hidden" id="selectedCarRate">
+
+        <!-- Customer Name -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Your Full Name</label>
+          <input required id="clientName" type="text" placeholder="e.g. Jasmeet Singh" class="w-full px-4 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <!-- From Where (Pickup) -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">From Where (Pickup Location)</label>
+          <input required id="clientPickup" type="text" placeholder="e.g. Model Town or Amritsar Airport" class="w-full px-4 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <!-- Final Destination (Dropoff) -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Final Destination (Drop Location)</label>
+          <input required id="clientDropoff" type="text" placeholder="e.g. Golden Temple or Jalandhar" class="w-full px-4 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+
+        <!-- When (Date & Time) -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Date</label>
+            <input required id="clientDate" type="date" class="w-full px-3 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Time</label>
+            <input required id="clientTime" type="time" value="09:00" class="w-full px-3 py-2.5 rounded-xl bg-[#1d1d26] border border-white/10 text-xs text-white focus:outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <!-- Submit to WhatsApp Button -->
+        <button type="submit" class="w-full mt-4 py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Send Booking to WhatsApp</span>
+        </button>
+
+        <p class="text-[11px] text-center text-gray-400">
+          This opens WhatsApp with your details pre-filled. You only have to hit <strong>Send</strong>.
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="w-full border-t border-white/10 bg-[#0b0b0e] py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="text-center md:text-left">
+        <span class="font-extrabold text-white text-base">Bhatti Tour and Travel</span>
+        <p class="text-xs text-gray-400 mt-1">Honest, reliable &amp; clean cab service.</p>
+      </div>
+
+      <!-- Mandatory Creator Credit Badge & Instagram Link -->
+      <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#121217] border border-white/10 hover:border-amber-500/50 hover:bg-[#181820] shadow-lg transition-all duration-300">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <p class="text-xs text-gray-400 group-hover:text-gray-200 transition-colors">
+          Created by <span class="font-bold text-white group-hover:text-amber-400 transition-colors">Navraj Sandhu</span>
+        </p>
+        <span class="text-xs text-amber-400/80 group-hover:text-amber-400 font-mono flex items-center gap-1 border-l border-white/10 pl-2.5">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @navraj_sxndhu
+        </span>
+      </a>
+
+      <!-- Instagram Direct Icon Button -->
+      <div>
+        <a href="https://instagram.com/navraj_sxndhu" target="_blank" rel="noopener noreferrer" aria-label="Navraj Sandhu on Instagram" class="w-10 h-10 rounded-full bg-[#121217] border border-white/10 flex items-center justify-center text-gray-400 hover:text-amber-400 hover:border-amber-400/50 hover:scale-105 transition-all">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    lucide.createIcons();
+
+    // Central Cloud Database Endpoint (Loads same data on Phone & Laptop)
+    const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
+
+    // Default Fallback Fleet
+    const DEFAULT_FLEET = [
+      {
+        id: 1,
+        name: "Maruti Suzuki Ertiga",
+        photo_url: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
+        seats: 7,
+        ac_type: "Dual AC (Front & Rear Chilled)",
+        rate_per_km: 12.0,
+        luggage_capacity: "3 Big Suitcases + 2 Bags",
+        description: "Clean and comfortable 7-seater family car. Experienced driver, roof AC vents, and generous legroom."
+      }
+    ];
+
+    let availableCars = DEFAULT_FLEET;
+    let configuredWhatsApp = '919876543210';
+
+    // Set today's date in modal
+    document.getElementById('clientDate').value = new Date().toISOString().split('T')[0];
+
+    window.onload = async function() {
+      // 1. Initial cached render for 0ms delay
+      const cachedCars = localStorage.getItem('bhatti_fleet_cars');
+      if (cachedCars) {
+        try { availableCars = JSON.parse(cachedCars); } catch (e) {}
+      }
+      const cachedNum = localStorage.getItem('bhatti_whatsapp_number');
+      if (cachedNum) configuredWhatsApp = cachedNum;
+
+      renderCarsList();
+
+      // 2. Fetch live data from Cloud DB (so changes made from laptop show on phone)
+      try {
+        const res = await fetch(CLOUD_DB_URL);
+        if (res.ok) {
+          const item = await res.json();
+          if (item && item.data) {
+            if (item.data.cars && item.data.cars.length > 0) {
+              availableCars = item.data.cars;
+              localStorage.setItem('bhatti_fleet_cars', JSON.stringify(availableCars));
+            }
+            if (item.data.whatsapp_number) {
+              configuredWhatsApp = item.data.whatsapp_number;
+              localStorage.setItem('bhatti_whatsapp_number', configuredWhatsApp);
+            }
+            renderCarsList();
+          }
+        }
+      } catch (err) {
+        console.warn('Using local cached fleet:', err);
+      }
+    };
+
+    function renderCarsList() {
+      const container = document.getElementById('carsCardsContainer');
+
+      if (!availableCars || availableCars.length === 0) {
+        availableCars = DEFAULT_FLEET;
+      }
+
+      container.innerHTML = availableCars.map(car => `
+        <!-- SCHOOL ID CARD FORMAT -->
+        <div class="id-card flex flex-col justify-between">
+          
+          <div>
+            <!-- ID Card Top Slot & Header -->
+            <div class="id-slot"></div>
+            
+            <div class="px-5 pt-1 pb-3 text-center border-b border-white/10">
+              <span class="text-[10px] uppercase font-extrabold tracking-widest text-amber-400 block">BHATTI TOUR &amp; TRAVEL</span>
+              <span class="text-[9px] text-gray-400 uppercase tracking-wider">OFFICIAL FLEET PERMIT ID #BTT-${100 + (car.id || 1)}</span>
+            </div>
+
+            <!-- Car Photo (Like student photo in ID card) -->
+            <div class="p-4 pb-2">
+              <div class="h-44 w-full rounded-xl overflow-hidden border border-white/10 bg-black/40 relative">
+                <img src="${car.photo_url}" alt="${car.name}" class="w-full h-full object-cover">
+                <span class="absolute bottom-2.5 right-2.5 px-3 py-1 rounded-lg bg-black/85 text-amber-400 font-extrabold text-sm border border-amber-500/30 font-mono">
+                  ₹${car.rate_per_km} / km
+                </span>
+              </div>
+            </div>
+
+            <!-- ID Card Details Table -->
+            <div class="px-5 py-3 space-y-2.5">
+              <div class="text-center pb-2 border-b border-white/5">
+                <h3 class="text-lg font-extrabold text-white">${car.name}</h3>
+                <span class="text-xs text-green-400 font-semibold flex items-center justify-center gap-1 mt-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Verified &amp; Ready
+                </span>
+              </div>
+
+              <!-- Structured Key-Value Fields like an ID badge -->
+              <div class="grid grid-cols-2 gap-2 text-xs pt-1">
+                <div class="bg-[#1a1a24] p-2.5 rounded-xl border border-white/5">
+                  <span class="text-[10px] text-gray-400 uppercase block font-semibold">Seating</span>
+                  <span class="text-white font-bold flex items-center gap-1.5 mt-0.5">
+                    <i data-lucide="users" class="w-3.5 h-3.5 text-amber-400"></i>
+                    ${car.seats} Passengers
+                  </span>
+                </div>
+
+                <div class="bg-[#1a1a24] p-2.5 rounded-xl border border-white/5">
+                  <span class="text-[10px] text-gray-400 uppercase block font-semibold">Cooling</span>
+                  <span class="text-white font-bold flex items-center gap-1.5 mt-0.5 truncate">
+                    <i data-lucide="snowflake" class="w-3.5 h-3.5 text-amber-400"></i>
+                    ${car.ac_type}
+                  </span>
+                </div>
+
+                <div class="bg-[#1a1a24] p-2.5 rounded-xl border border-white/5 col-span-2">
+                  <span class="text-[10px] text-gray-400 uppercase block font-semibold">Luggage Allowance</span>
+                  <span class="text-white font-medium flex items-center gap-1.5 mt-0.5">
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-amber-400"></i>
+                    ${car.luggage_capacity || 'Suitcases and hand bags'}
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-xs text-gray-400 leading-relaxed pt-1">
+                ${car.description || 'Clean, sanitized taxi driven by professional driver.'}
+              </p>
+            </div>
+          </div>
+
+          <!-- ID Card Bottom Action Bar -->
+          <div class="p-5 pt-2 border-t border-white/10 bg-[#101016]">
+            <button onclick="openBookingModal('${car.name}', '${car.rate_per_km}')" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>Book This Car</span>
+            </button>
+          </div>
+
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function openBookingModal(carName, ratePerKm) {
+      document.getElementById('selectedCarName').value = carName;
+      document.getElementById('selectedCarRate').value = ratePerKm;
+      document.getElementById('modalCarSubtitle').innerText = `${carName} (Rate: ₹${ratePerKm}/km)`;
+      document.getElementById('bookingModal').classList.remove('hidden');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    }
+
+    function handleSendToWhatsApp(e) {
+      e.preventDefault();
+
+      const car = document.getElementById('selectedCarName').value;
+      const rate = document.getElementById('selectedCarRate').value;
+      const name = document.getElementById('clientName').value.trim();
+      const pickup = document.getElementById('clientPickup').value.trim();
+      const dropoff = document.getElementById('clientDropoff').value.trim();
+      const date = document.getElementById('clientDate').value;
+      const time = document.getElementById('clientTime').value;
+
+      // Automated pre-filled WhatsApp message
+      const textMessage = 
+`*NEW TAXI BOOKING REQUEST*
+-----------------------------
+*Customer Name:* ${name}
+*Selected Car:* ${car} (₹${rate}/km)
+*Pickup From:* ${pickup}
+*Destination To:* ${dropoff}
+*Date:* ${date}
+*Time:* ${time}
+-----------------------------
+Hello Bhatti Tour and Travel, please confirm my booking for the above ride.`;
+
+      const encodedText = encodeURIComponent(textMessage);
+      const activeNum = configuredWhatsApp || localStorage.getItem('bhatti_whatsapp_number') || '919876543210';
+      const cleanPhone = activeNum.replace(/\+/g, '').replace(/\s+/g, '');
+
+      // Open WhatsApp web or app
+      const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedText}`;
+      
+      closeBookingModal();
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>

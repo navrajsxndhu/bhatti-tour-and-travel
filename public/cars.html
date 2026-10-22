@@ -192,10 +192,10 @@
   <script>
     lucide.createIcons();
 
-    // Central Cloud Database Endpoint (Loads same data on Phone & Laptop)
-    const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
+    // High Reliability GitHub Gist Database Endpoint
+    const GIST_API_URL = 'https://api.github.com/gists/943a487b31f5624cb07455c496305dfc';
 
-    // Default Fallback Fleet
+    // Default Fallback Fleet (Guaranteed to show both Ertiga and Tata Tiago)
     const DEFAULT_FLEET = [
       {
         id: 1,
@@ -203,9 +203,19 @@
         photo_url: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
         seats: 7,
         ac_type: "Dual AC (Front & Rear Chilled)",
-        rate_per_km: 12.0,
+        rate_per_km: 14.0,
         luggage_capacity: "3 Big Suitcases + 2 Bags",
         description: "Clean and comfortable 7-seater family car. Experienced driver, roof AC vents, and generous legroom."
+      },
+      {
+        id: 2,
+        name: "Tata tiago",
+        photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuzwzuO2pHy0atev7JZo8l1iH9JeQFMlqP_bezGc1tgdIaZjGY9G9KQFk&s",
+        seats: 5,
+        rate_per_km: 12.0,
+        ac_type: "AC (Front)",
+        luggage_capacity: "1 Big Suitcases",
+        description: "Compact and economical city & highway taxi."
       }
     ];
 
@@ -219,25 +229,31 @@
       // 1. Initial cached render for 0ms delay
       const cachedCars = localStorage.getItem('bhatti_fleet_cars');
       if (cachedCars) {
-        try { availableCars = JSON.parse(cachedCars); } catch (e) {}
+        try { 
+          const parsed = JSON.parse(cachedCars);
+          if (parsed && parsed.length > 0) availableCars = parsed;
+        } catch (e) {}
       }
       const cachedNum = localStorage.getItem('bhatti_whatsapp_number');
       if (cachedNum) configuredWhatsApp = cachedNum;
 
       renderCarsList();
 
-      // 2. Fetch live data from Cloud DB (so changes made from laptop show on phone)
+      // 2. Fetch live data from GitHub Gist Cloud DB
       try {
-        const res = await fetch(CLOUD_DB_URL);
+        const res = await fetch(GIST_API_URL, {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        });
         if (res.ok) {
-          const item = await res.json();
-          if (item && item.data) {
-            if (item.data.cars && item.data.cars.length > 0) {
-              availableCars = item.data.cars;
+          const gist = await res.json();
+          if (gist && gist.files && gist.files['fleet.json']) {
+            const data = JSON.parse(gist.files['fleet.json'].content);
+            if (data.cars && data.cars.length > 0) {
+              availableCars = data.cars;
               localStorage.setItem('bhatti_fleet_cars', JSON.stringify(availableCars));
             }
-            if (item.data.whatsapp_number) {
-              configuredWhatsApp = item.data.whatsapp_number;
+            if (data.whatsapp_number) {
+              configuredWhatsApp = data.whatsapp_number;
               localStorage.setItem('bhatti_whatsapp_number', configuredWhatsApp);
             }
             renderCarsList();

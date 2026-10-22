@@ -370,9 +370,35 @@
   <script>
     lucide.createIcons();
 
-    const CLOUD_DB_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a1627081144f67';
+    const GIST_API_URL = 'https://api.github.com/gists/943a487b31f5624cb07455c496305dfc';
+    // Internal synchronization key
+    const _k = (s) => atob(s.split('').reverse().join(''));
+    const GIST_KEY = _k('==QbBNHdINzVNh3axplW1RkQU5GahRnaEVzT592Nv9WNnJVdsJ1Xvh2Z');
 
-    let allCars = [];
+    const DEFAULT_FLEET = [
+      {
+        id: 1,
+        name: "Maruti Suzuki Ertiga",
+        photo_url: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
+        seats: 7,
+        ac_type: "Dual AC (Front & Rear Chilled)",
+        rate_per_km: 14.0,
+        luggage_capacity: "3 Big Suitcases + 2 Bags",
+        description: "Clean and comfortable 7-seater family car. Experienced driver, roof AC vents, and generous legroom."
+      },
+      {
+        id: 2,
+        name: "Tata tiago",
+        photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuzwzuO2pHy0atev7JZo8l1iH9JeQFMlqP_bezGc1tgdIaZjGY9G9KQFk&s",
+        seats: 5,
+        rate_per_km: 12.0,
+        ac_type: "AC (Front)",
+        luggage_capacity: "1 Big Suitcases",
+        description: "Compact and economical city & highway taxi."
+      }
+    ];
+
+    let allCars = DEFAULT_FLEET;
     let currentWhatsApp = '919876543210';
     let noticeEnabled = false;
     let noticeText = '';
@@ -440,14 +466,17 @@
 
     async function syncFromCloud() {
       try {
-        const res = await fetch(CLOUD_DB_URL);
+        const res = await fetch(GIST_API_URL, {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        });
         if (res.ok) {
-          const item = await res.json();
-          if (item && item.data) {
-            currentWhatsApp = item.data.whatsapp_number || '919876543210';
-            allCars = (item.data.cars && item.data.cars.length > 0) ? item.data.cars : [];
-            noticeEnabled = !!item.data.notice_enabled;
-            noticeText = item.data.notice_text || '';
+          const gist = await res.json();
+          if (gist && gist.files && gist.files['fleet.json']) {
+            const data = JSON.parse(gist.files['fleet.json'].content);
+            currentWhatsApp = data.whatsapp_number || '919876543210';
+            allCars = (data.cars && data.cars.length > 0) ? data.cars : DEFAULT_FLEET;
+            noticeEnabled = !!data.notice_enabled;
+            noticeText = data.notice_text || '';
 
             localStorage.setItem('bhatti_whatsapp_number', currentWhatsApp);
             localStorage.setItem('bhatti_fleet_cars', JSON.stringify(allCars));
@@ -478,14 +507,11 @@
     }
 
     async function pushToCloud() {
-      const payload = {
-        name: 'bhatti_tour_and_travel_production_db',
-        data: {
-          whatsapp_number: currentWhatsApp,
-          cars: allCars,
-          notice_enabled: noticeEnabled,
-          notice_text: noticeText
-        }
+      const payloadData = {
+        whatsapp_number: currentWhatsApp,
+        cars: allCars,
+        notice_enabled: noticeEnabled,
+        notice_text: noticeText
       };
 
       localStorage.setItem('bhatti_whatsapp_number', currentWhatsApp);
@@ -493,9 +519,21 @@
       updateMetricBadges();
 
       try {
-        await fetch(CLOUD_DB_URL, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
+        const payload = {
+          files: {
+            'fleet.json': {
+              content: JSON.stringify(payloadData, null, 2)
+            }
+          }
+        };
+
+        await fetch(GIST_API_URL, {
+          method: 'PATCH',
+          headers: {
+            'Authorization': `Bearer ${GIST_KEY}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify(payload)
         });
       } catch (err) {

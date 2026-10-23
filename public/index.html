@@ -77,8 +77,17 @@
       <!-- DYNAMIC ALL CARS SHOWCASE ON HOMEPAGE -->
       <div class="space-y-3 pt-2">
         <div class="flex items-center justify-between">
-          <h2 class="text-sm font-extrabold text-white uppercase tracking-wider text-amber-400">Available Fleet for Booking</h2>
-          <span id="fleetCountBadge" class="text-xs text-gray-400 font-mono">2 Available</span>
+          <div class="flex items-center gap-2.5">
+            <h2 class="text-sm font-extrabold text-amber-400 tracking-wide">Available Fleet for Booking</h2>
+            <span id="fleetCountBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-xs font-semibold text-emerald-400 font-mono">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              2 Available
+            </span>
+          </div>
+          <a href="/cars" class="text-xs text-amber-400 font-semibold hover:underline flex items-center gap-1">
+            <span>View All Specs</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
 
         <div id="homepageFleetGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -110,30 +119,29 @@
     <div class="max-w-4xl mx-auto space-y-3">
       <div class="flex items-center justify-between">
         <h2 class="text-base sm:text-lg font-extrabold text-white">Popular Trips</h2>
-        <a href="/cars" class="text-xs text-amber-400 font-semibold hover:underline">View Fleet Specs &rarr;</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
           <div>
-            <h4 class="text-xs font-bold text-white">Airport Pickup / Drop</h4>
-            <p class="text-[11px] text-gray-400">Amritsar &bull; Delhi IGI &bull; Chandigarh</p>
+            <h3 class="text-xs sm:text-sm font-bold text-white">Airport Pickup / Drop</h3>
+            <p class="text-xs text-gray-400 leading-normal">Amritsar &bull; Delhi IGI &bull; Chandigarh</p>
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
 
         <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
           <div>
-            <h4 class="text-xs font-bold text-white">Himachal Hill Stations</h4>
-            <p class="text-[11px] text-gray-400">Dharamshala &bull; Manali &bull; Dalhousie</p>
+            <h3 class="text-xs sm:text-sm font-bold text-white">Himachal Hill Stations</h3>
+            <p class="text-xs text-gray-400 leading-normal">Dharamshala &bull; Manali &bull; Dalhousie</p>
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
 
         <a href="/cars" class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between">
           <div>
-            <h4 class="text-xs font-bold text-white">Local Full Day City Tour</h4>
-            <p class="text-[11px] text-gray-400">Golden Temple &bull; Wagah &bull; Shopping</p>
+            <h3 class="text-xs sm:text-sm font-bold text-white">Local Full Day City Tour</h3>
+            <p class="text-xs text-gray-400 leading-normal">Golden Temple &bull; Wagah &bull; Shopping</p>
           </div>
           <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">Book</span>
         </a>
@@ -143,56 +151,76 @@
 
   <!-- ================= COMPACT REVIEWS ================= -->
   <section class="py-6 px-4">
-    <div class="max-w-4xl mx-auto space-y-3">
+    <div class="max-w-4xl mx-auto space-y-4">
       <h2 class="text-base sm:text-lg font-extrabold text-white">Customer Reviews</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 space-y-2">
-          <div class="flex items-center gap-1 text-amber-400">
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+        <div class="p-4 pb-5 rounded-xl bg-[#14141a] border border-white/10 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <div class="flex items-center gap-1 text-amber-400">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            </div>
+            <p class="text-xs text-gray-300 italic leading-relaxed">"Subah 4 baje flight thi, Bhatti ji 3:45 pe gate pe ready the. Gaadi ekdum clean aur comfortable thi."</p>
           </div>
-          <p class="text-xs text-gray-300 italic">"Subah 4 baje flight thi, Bhatti ji 3:45 pe gate pe ready the. Gaadi ekdum clean aur comfortable thi."</p>
-          <div class="text-[11px] font-bold text-white">&mdash; Gurpreet Singh, Amritsar</div>
+          <div class="text-xs font-bold text-white pt-2 border-t border-white/5">&mdash; Gurpreet Singh, Amritsar</div>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 space-y-2">
-          <div class="flex items-center gap-1 text-amber-400">
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+        <div class="p-4 pb-5 rounded-xl bg-[#14141a] border border-white/10 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <div class="flex items-center gap-1 text-amber-400">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            </div>
+            <p class="text-xs text-gray-300 italic leading-relaxed">"Family ke sath Dalhousie gaye the. Pahadi mod par bohot smoothly drive kiya, bache bhi safe feel kar rahe the."</p>
           </div>
-          <p class="text-xs text-gray-300 italic">"Family ke sath Dalhousie gaye the. Pahadi mod par bohot smoothly drive kiya, bache bhi safe feel kar rahe the."</p>
-          <div class="text-[11px] font-bold text-white">&mdash; Maninder Sharma, Jalandhar</div>
+          <div class="text-xs font-bold text-white pt-2 border-t border-white/5">&mdash; Maninder Sharma, Jalandhar</div>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-[#14141a] border border-white/10 space-y-2">
-          <div class="flex items-center gap-1 text-amber-400">
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+        <div class="p-4 pb-5 rounded-xl bg-[#14141a] border border-white/10 flex flex-col justify-between space-y-3">
+          <div class="space-y-2">
+            <div class="flex items-center gap-1 text-amber-400">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            </div>
+            <p class="text-xs text-gray-300 italic leading-relaxed">"WhatsApp pe 2 minute mein rate bataya aur confirm kiya. Koi hidden charge nahi, payment drop pe di."</p>
           </div>
-          <p class="text-xs text-gray-300 italic">"WhatsApp pe 2 minute mein rate bataya aur confirm kiya. Koi hidden charge nahi, payment drop pe di."</p>
-          <div class="text-[11px] font-bold text-white">&mdash; Amanpreet Kaur, Ludhiana</div>
+          <div class="text-xs font-bold text-white pt-2 border-t border-white/5">&mdash; Amanpreet Kaur, Ludhiana</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ================= DIRECT WHATSAPP ACTION ================= -->
-  <div class="max-w-4xl mx-auto px-4 pt-2">
-    <a id="mainWhatsAppBtn" href="https://wa.me/919876543210" target="_blank" class="w-full py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg transition-all">
-      <i data-lucide="message-circle" class="w-4 h-4"></i>
+  <div class="max-w-4xl mx-auto px-4 pt-6 pb-2">
+    <a id="mainWhatsAppBtn" href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-black font-extrabold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2.5 shadow-lg transition-all">
+      <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.002-.468-1.554-.645-2.541-2.225-2.618-2.328-.077-.102-.629-.836-.629-1.594 0-.759.397-1.132.538-1.285.141-.153.308-.192.411-.192.103 0 .205.002.296.006.096.005.226-.037.353.27.132.319.45.1.096.488 1.19.038.093.064.202.002.327-.063.125-.094.202-.187.311-.093.109-.196.244-.28.328-.093.093-.19.194-.082.38.109.186.482.796 1.033 1.288.71.634 1.309.83 1.495.923.186.093.295.08.404-.047.109-.125.467-.544.592-.731.125-.187.25-.156.42-.093.17.062 1.077.508 1.262.6.186.094.309.14.354.219.046.078.046.452-.098.857zM12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.34A10 10 0 1 0 12 2z"/>
+      </svg>
       <span>Chat on WhatsApp &bull; Instant Rate Quote</span>
     </a>
   </div>
+
+  <!-- Persistent Floating WhatsApp Button for Instant Booking -->
+  <a id="floatingWhatsAppBtn" 
+     href="https://wa.me/919876543210?text=Hello%20Bhatti%20Ji,%20mujhe%20taxi%20booking%20ki%20inquiry%20karni%20hai" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Chat with Bhatti Tour and Travel on WhatsApp"
+     class="fixed bottom-5 right-5 z-40 w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-black shadow-2xl transition-transform hover:scale-110 flex items-center justify-center border-2 border-black/40">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.075-2.002-.468-1.554-.645-2.541-2.225-2.618-2.328-.077-.102-.629-.836-.629-1.594 0-.759.397-1.132.538-1.285.141-.153.308-.192.411-.192.103 0 .205.002.296.006.096.005.226-.037.353.27.132.319.45.1.096.488 1.19.038.093.064.202.002.327-.063.125-.094.202-.187.311-.093.109-.196.244-.28.328-.093.093-.19.194-.082.38.109.186.482.796 1.033 1.288.71.634 1.309.83 1.495.923.186.093.295.08.404-.047.109-.125.467-.544.592-.731.125-.187.25-.156.42-.093.17.062 1.077.508 1.262.6.186.094.309.14.354.219.046.078.046.452-.098.857zM12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.34A10 10 0 1 0 12 2z"/>
+    </svg>
+  </a>
 
   <!-- ================= POP-UP MODAL: CUSTOMER TRIP DETAILS ================= -->
   <div id="bookingModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -273,21 +301,21 @@
       {
         id: 1,
         name: "Maruti Suzuki Ertiga",
-        photo_url: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
+        photo_url: "/ertiga.jpg",
         seats: 7,
         ac_type: "Dual AC (Front & Rear Chilled)",
         rate_per_km: 14.0,
         luggage_capacity: "3 Big Suitcases + 2 Bags",
-        description: "Clean and comfortable 7-seater family car. Experienced driver, roof AC vents, and generous legroom."
+        description: "Clean and comfortable 7-seater family MPV. Experienced driver, roof AC vents, and generous legroom."
       },
       {
         id: 2,
-        name: "Tata tiago",
-        photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuzwzuO2pHy0atev7JZo8l1iH9JeQFMlqP_bezGc1tgdIaZjGY9G9KQFk&s",
+        name: "Tata Tiago",
+        photo_url: "/tiago.jpg",
         seats: 5,
         rate_per_km: 12.0,
         ac_type: "AC (Front)",
-        luggage_capacity: "1 Big Suitcases",
+        luggage_capacity: "1 Big Suitcase + 1 Bag",
         description: "Compact and economical city & highway taxi."
       }
     ];
@@ -347,18 +375,25 @@
 
     function updateContactButtons(num) {
       const cleanNum = num.replace(/\+/g, '').replace(/\s+/g, '');
+      const encodedText = encodeURIComponent("Hello Bhatti Ji, mujhe taxi booking ki inquiry karni hai");
+      const waUrl = `https://wa.me/${cleanNum}?text=${encodedText}`;
       document.getElementById('navCallBtn').href = `tel:+${cleanNum}`;
-      document.getElementById('mainWhatsAppBtn').href = `https://wa.me/${cleanNum}?text=Hello%20Bhatti%20Ji,%20mujhe%20taxi%20booking%20ki%20inquiry%20karni%20hai`;
+      document.getElementById('mainWhatsAppBtn').href = waUrl;
+      const floatingBtn = document.getElementById('floatingWhatsAppBtn');
+      if (floatingBtn) floatingBtn.href = waUrl;
     }
 
     function renderHomepageFleet(cars) {
       const grid = document.getElementById('homepageFleetGrid');
-      document.getElementById('fleetCountBadge').innerText = `${cars.length} Available`;
+      const countBadge = document.getElementById('fleetCountBadge');
+      if (countBadge) {
+        countBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>${cars.length} Available`;
+      }
 
       grid.innerHTML = cars.map(car => `
         <div class="bg-[#14141a] border border-white/10 rounded-2xl p-4 shadow-xl space-y-3 flex flex-col justify-between">
           <div class="space-y-3">
-            <div class="h-44 rounded-xl overflow-hidden bg-black/40 relative">
+            <div class="h-44 rounded-xl overflow-hidden bg-[#181822] relative flex items-center justify-center">
               <img src="${car.photo_url}" alt="${car.name}" class="w-full h-full object-cover">
               <div class="absolute bottom-2.5 left-2.5 bg-black/85 px-2.5 py-1 rounded-lg border border-white/10 text-xs font-bold text-amber-400 font-mono">
                 ₹${car.rate_per_km} / km
@@ -377,6 +412,9 @@
           </button>
         </div>
       `).join('');
+
+      lucide.createIcons();
+    }
 
       lucide.createIcons();
     }

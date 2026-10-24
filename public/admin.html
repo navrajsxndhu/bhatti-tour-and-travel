@@ -695,7 +695,7 @@
       renderCars();
     }
 
-    // ================= GPS FLEET TRACKING ENGINE =================
+    // ================= GPS FLEET TRACKING ENGINE (SIRSA BASE) =================
     function initTrackingMap() {
       if (trackingMap) {
         trackingMap.invalidateSize();
@@ -703,7 +703,8 @@
         return;
       }
 
-      trackingMap = L.map('liveAdminMap').setView([31.6340, 74.8723], 12);
+      // Center on Sirsa, Haryana coordinates (29.5349, 75.0298)
+      trackingMap = L.map('liveAdminMap').setView([29.5349, 75.0298], 13);
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; CartoDB',
         maxZoom: 18
@@ -715,8 +716,8 @@
       telemetryInterval = setInterval(() => {
         t += 0.05;
         allCars.forEach((car, index) => {
-          const lat = 31.6340 + Math.sin(t + index) * 0.015;
-          const lng = 74.8723 + Math.cos(t + (index * 1.5)) * 0.018;
+          const lat = 29.5349 + Math.sin(t + index) * 0.012;
+          const lng = 75.0298 + Math.cos(t + (index * 1.5)) * 0.014;
 
           if (!carMarkers[car.id]) {
             const carIcon = L.divIcon({
@@ -754,8 +755,8 @@
             </div>
             <div class="text-[11px] text-gray-400">Assigned Driver: Harpreet / Gurdeep</div>
             <div class="text-[10px] font-mono text-amber-400 flex items-center justify-between">
-              <span>GPS Coordinates:</span>
-              <span id="driverCoords_${car.id}">31.6340, 74.8723</span>
+              <span>GPS Coordinates (Sirsa):</span>
+              <span id="driverCoords_${car.id}">29.5349, 75.0298</span>
             </div>
           </div>
         `;

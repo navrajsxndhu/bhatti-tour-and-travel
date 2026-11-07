@@ -4,6 +4,13 @@
   "rewrites": [
     { "source": "/cars", "destination": "/public/cars.html" },
     { "source": "/admin", "destination": "/public/admin.html" },
+    { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" },
+    { "source": "/robots.txt", "destination": "/public/robots.txt" },
+    { "source": "/sirsa-to-delhi-airport-cab", "destination": "/public/sirsa-to-delhi-airport-cab.html" },
+    { "source": "/sirsa-to-chandigarh-taxi", "destination": "/public/sirsa-to-chandigarh-taxi.html" },
+    { "source": "/sirsa-to-ludhiana-cab", "destination": "/public/sirsa-to-ludhiana-cab.html" },
+    { "source": "/sirsa-to-salasar-balaji-cab", "destination": "/public/sirsa-to-salasar-balaji-cab.html" },
+    { "source": "/sirsa-railway-station-taxi", "destination": "/public/sirsa-railway-station-taxi.html" },
     { "source": "/", "destination": "/public/index.html" },
     { "source": "/(.*)", "destination": "/public/$1" }
   ]

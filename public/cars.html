@@ -223,10 +223,10 @@
     ];
 
     let availableCars = DEFAULT_FLEET;
-    let configuredWhatsApp = '919876543210';
+    let configuredWhatsApp = '918295863463';
 
     function normalizePhone(num) {
-      if (!num) return '919876543210';
+      if (!num) return '918295863463';
       return String(num).replace(/\D/g, '');
     }
 
@@ -402,7 +402,7 @@
 Hello Bhatti Tour and Travel, please confirm my booking for the above ride.`;
 
       const encodedText = encodeURIComponent(textMessage);
-      const activeNum = configuredWhatsApp || localStorage.getItem('bhatti_whatsapp_number') || '919876543210';
+      const activeNum = configuredWhatsApp || localStorage.getItem('bhatti_whatsapp_number') || '918295863463';
       const cleanPhone = normalizePhone(activeNum);
 
       // Open WhatsApp web or app
